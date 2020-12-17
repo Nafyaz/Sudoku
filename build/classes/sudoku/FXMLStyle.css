@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 16, 2020, 11:27:48 AM
+    Author     : ASUS
+*/
+
+.root{
+    -fx-background-color: lightblue;
+    /*-fx-padding: 100 ;*/
+}
+
+.button, .label
+{
+    -fx-font-style: italic;
+    -fx-font-size: 24px;
+}
+
+.const
+{
+    -fx-background-color: rgb(0, 150, 0);
+    -fx-opacity: 1.0;
+}
+
+

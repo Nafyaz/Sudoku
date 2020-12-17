@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.FXMLDocumentController">
+    <stylesheets>
+        <URL value="@FXMLStyle.css" />
+    </stylesheets>
+    <children>
+      <!--Block 0 0-->        
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="grid03" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" />
+            <Label fx:id="grid04" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid05" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid13" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" />
+            <Label fx:id="grid14" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid15" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid23" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid24" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid25" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 1-->  
+      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid60" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" />
+            <Label fx:id="grid70" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Label fx:id="grid61" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid71" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid62" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.rowIndex="2" />
+            <Label fx:id="grid72" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid82" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="grid81" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid80" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid33" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" />
+            <Label fx:id="grid34" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.rowIndex="1" />
+            <Label fx:id="grid35" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid43" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Label fx:id="grid44" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid45" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid53" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid54" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid55" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid30" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" />
+            <Label fx:id="grid31" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid32" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid40" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" />
+            <Label fx:id="grid41" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid42" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid50" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid51" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid52" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid63" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" />
+            <Label fx:id="grid64" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.rowIndex="1" />
+            <Label fx:id="grid65" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid73" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" />
+            <Label fx:id="grid74" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid75" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid83" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid84" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid85" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid36" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" />
+            <Label fx:id="grid37" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid38" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid46" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Label fx:id="grid47" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid48" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid56" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid57" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid58" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid00" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" />
+            <Label fx:id="grid01" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" text="6" GridPane.rowIndex="1" />
+            <Label fx:id="grid02" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.rowIndex="2" />
+            <Label fx:id="grid10" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Label fx:id="grid11" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid12" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid20" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" />
+            <Label fx:id="grid21" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid22" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid006" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" />
+            <Label fx:id="grid07" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid08" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.rowIndex="2" />
+            <Label fx:id="grid16" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Label fx:id="grid17" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid18" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid26" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" />
+            <Label fx:id="grid27" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid28" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--Block 0 0-->  
+      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="grid66" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" />
+            <Label fx:id="grid67" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+            <Label fx:id="grid68" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="2" />
+            <Label fx:id="grid76" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" />
+            <Label fx:id="grid77" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="grid78" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="grid86" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" />
+            <Label fx:id="grid87" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" styleClass="const" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="grid88" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#clickgrid" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <!--NUMBER BUTTONS-->  
+      <GridPane fx:id="num_bt" gridLinesVisible="true" layoutX="536.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="num_bt1" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="1">
+
+            </Button>
+            <Button fx:id="num_bt4" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.rowIndex="1">
+
+            </Button>
+            <Button fx:id="num_bt7" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.rowIndex="2">
+            </Button>
+            <Button fx:id="num_bt5" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+            </Button>
+            <Button fx:id="num_bt8" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+            </Button>
+            <Button fx:id="num_bt2" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="1">
+
+            </Button>
+            <Button fx:id="num_bt3" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="2">
+
+            </Button>
+            <Button fx:id="num_bt6" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+            </Button>
+            <Button fx:id="num_bt9" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" mnemonicParsing="false" onAction="#clicknum" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
+            </Button>
+         </children>
+      </GridPane>
+      <Button layoutX="568.0" layoutY="178.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
+   </children>
+</AnchorPane>
