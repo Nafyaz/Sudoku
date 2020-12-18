@@ -18,11 +18,3 @@ and open the template in the editor.
     -fx-font-style: italic;
     -fx-font-size: 24px;
 }
-
-.const
-{
-    -fx-background-color: rgb(0, 150, 0);
-    -fx-opacity: 1.0;
-}
-
-
