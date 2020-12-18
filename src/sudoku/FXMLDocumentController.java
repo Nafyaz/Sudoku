@@ -47,20 +47,10 @@ public class FXMLDocumentController implements Initializable
                 grid70, grid71, grid72, grid73, grid74, grid75, grid76, grid77, grid78, 
                 grid80, grid81, grid82, grid83, grid84, grid85, grid86, grid87, grid88;
     
-//    private void render()
-//    {
-//        for(int i = 0; i < 9; i++)
-//        {
-//            for(int j = 0; j < 9; j++)
-//            {
-//                if(ques[i][j] != 0)
-//                {
-//                    alllabels[i][j].getStylesheets().add("const"); 
-////                    System.out.print(i, j);
-//                }
-//            }
-//        }
-//    }
+    private boolean check(int r, int c)
+    {
+        return false;
+    }
     
     @FXML
     private void clicknum(ActionEvent event)
@@ -69,12 +59,12 @@ public class FXMLDocumentController implements Initializable
         String bText = b.getText();
         
         box.setText(bText);
-        int c = box.getId().charAt(4) - 48;
-        int r = box.getId().charAt(5) - 48;
+        int r = box.getId().charAt(4) - 48;
+        int c = box.getId().charAt(5) - 48;
         
-//        System.out.println(c);
+        grid[r][c] = Integer.parseInt(bText);
         
-        if(Integer.parseInt(bText) == grid[c][r])
+        if(check(r, c))
             box.setStyle("-fx-background-color: rgb(0, 255, 0);");
         else
             box.setStyle("-fx-background-color: rgb(255, 0, 0);");
@@ -84,7 +74,7 @@ public class FXMLDocumentController implements Initializable
     private void clickclear(ActionEvent event)
     {
         box.setText("");
-        box.setStyle("-fx-opaciy: 1;");
+        box.setStyle("-fx-background-color: rgb(0, 0, 200);");
     }
     
     @FXML
@@ -99,20 +89,21 @@ public class FXMLDocumentController implements Initializable
         
         if(ques[r][c] == 0)
         {
-            box = temp;
-            box.setStyle("-fx-background-color: rgb(0, 0, 200);");
-            
-            if(prevbox != null && prevbox != box)
+            if(box != null)
             {
+                prevbox = box;
                 prevbox.setStyle("-fx-opaciy: 1;");  
             }
+            
+            box = temp;
+            box.setStyle("-fx-background-color: rgb(0, 0, 200);");
         }
     }
    
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        int[][] solve = {
+        int[][] solved = {
         {4, 3, 5, 2, 6, 9, 7, 8, 1},
         {6, 8, 2, 5, 7, 1, 4, 9, 3},
         {1, 9, 7, 8, 3, 4, 5, 6, 2},
