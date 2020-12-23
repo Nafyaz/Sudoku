@@ -32,7 +32,6 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private Label box;
     private Label alllabels[][] = new Label[9][9];
-    private Label prevbox, renderbox;
     
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
@@ -102,16 +101,13 @@ public class FXMLDocumentController implements Initializable
             {
                 if(ques[i][j] == 0 && grid[i][j] != 0)
                 {
-                    System.out.print("(" + i + ", " + j + ") ");
                     if(checkcell(i, j))
                         alllabels[i][j].setStyle("-fx-background-color: rgb(0, 255, 0);");
                     else
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
                 }
             }
-        }
-        
-        System.out.println("");
+        }        
     }
     
     @FXML
@@ -121,20 +117,23 @@ public class FXMLDocumentController implements Initializable
         String bText = b.getText();
         
         clearcolors();
-        box.setStyle("-fx-background-color: rgb(0, 0, 200);");
+        box.setStyle("-fx-background-color: deepskyblue;");
         box.setText(bText);
         int r = box.getId().charAt(4) - 48;
         int c = box.getId().charAt(5) - 48;
        
-        grid[r][c] = Integer.parseInt(bText);
-        
+        grid[r][c] = Integer.parseInt(bText);        
     }
     
     @FXML
     private void clickclear(ActionEvent event)
     {
         box.setText("");
-        box.setStyle("-fx-background-color: rgb(0, 0, 200);");
+        int r = box.getId().charAt(4) - 48;
+        int c = box.getId().charAt(5) - 48;
+       
+        grid[r][c] = 0;  
+        box.setStyle("-fx-background-color: deepskyblue;");
     }
     
     @FXML
@@ -151,7 +150,7 @@ public class FXMLDocumentController implements Initializable
         if(ques[r][c] == 0)
         {
             box = temp;
-            box.setStyle("-fx-background-color: rgb(0, 0, 200);");
+            box.setStyle("-fx-background-color: deepskyblue;");
         }
     }
    
