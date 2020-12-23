@@ -280,5 +280,6 @@
          </children>
       </GridPane>
       <Button layoutX="568.0" layoutY="178.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
+      <Button layoutX="206.0" layoutY="535.0" mnemonicParsing="false" onAction="#clickcheck" text="Check" />
    </children>
 </AnchorPane>

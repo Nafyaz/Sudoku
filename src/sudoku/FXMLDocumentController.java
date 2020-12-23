@@ -7,6 +7,7 @@ package sudoku;
 
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,10 +47,72 @@ public class FXMLDocumentController implements Initializable
                 grid60, grid61, grid62, grid63, grid64, grid65, grid66, grid67, grid68, 
                 grid70, grid71, grid72, grid73, grid74, grid75, grid76, grid77, grid78, 
                 grid80, grid81, grid82, grid83, grid84, grid85, grid86, grid87, grid88;
-    
-    private boolean check(int r, int c)
+     
+    private void clearcolors()
     {
-        return false;
+        for(int i = 0; i < 9; i++)
+        {
+            for(int j = 0; j < 9; j++)
+            {
+                if(ques[i][j] == 0)
+                {
+                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
+                }
+            }
+        }
+    }
+    
+    private boolean checkcell(int r, int c)
+    {
+        int val = grid[r][c];
+        
+        for(int i = 0; i < 9; i++)
+        {
+            if(i != c && grid[r][i] == val)
+                return false;
+        }
+        
+        for(int i = 0; i < 9; i++)
+        {
+            if(i != r && grid[i][c] == val)
+                return false;
+        }
+                
+        int rowSt = r/3*3, colSt = c/3*3;
+        
+        for(int i = rowSt; i < rowSt+3; i++)
+        {
+            for(int j = colSt; j < colSt+3; j++)
+            {
+                if(i != r && j != c && grid[i][j] == val)
+                    return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    @FXML
+    private void clickcheck(ActionEvent event)
+    {
+        int i, j;
+        for(i = 0; i < 9; i++)
+        {
+            for(j = 0; j < 9; j++)
+            {
+                if(ques[i][j] == 0 && grid[i][j] != 0)
+                {
+                    System.out.print("(" + i + ", " + j + ") ");
+                    if(checkcell(i, j))
+                        alllabels[i][j].setStyle("-fx-background-color: rgb(0, 255, 0);");
+                    else
+                        alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
+                }
+            }
+        }
+        
+        System.out.println("");
+        
     }
     
     @FXML
@@ -61,13 +124,9 @@ public class FXMLDocumentController implements Initializable
         box.setText(bText);
         int r = box.getId().charAt(4) - 48;
         int c = box.getId().charAt(5) - 48;
-        
+       
         grid[r][c] = Integer.parseInt(bText);
         
-        if(check(r, c))
-            box.setStyle("-fx-background-color: rgb(0, 255, 0);");
-        else
-            box.setStyle("-fx-background-color: rgb(255, 0, 0);");
     }
     
     @FXML
@@ -80,21 +139,16 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private void clickgrid(MouseEvent event)
     {
+        clearcolors();
+        
         Label temp = ((Label)event.getSource());
         
         int r = temp.getId().charAt(4) - 48;
         int c = temp.getId().charAt(5) - 48;
         
-//        System.out.println("" + c + " " + r);
         
         if(ques[r][c] == 0)
         {
-            if(box != null)
-            {
-                prevbox = box;
-                prevbox.setStyle("-fx-opaciy: 1;");  
-            }
-            
             box = temp;
             box.setStyle("-fx-background-color: rgb(0, 0, 200);");
         }
@@ -127,7 +181,11 @@ public class FXMLDocumentController implements Initializable
         {7, 0, 3, 0, 1, 8, 0 , 0, 0}
         };
         
-        grid = ques = temp;
+        for(int i = 0; i < 9; i++)
+        {
+            grid[i] = Arrays.copyOf(temp[i], 9);
+            ques[i] = Arrays.copyOf(temp[i], 9);
+        }
         
         alllabels[0][0]= grid00; alllabels[0][1]= grid01; alllabels[0][2]= grid02; alllabels[0][3]= grid03; alllabels[0][4]= grid04; alllabels[0][5]= grid05; alllabels[0][6]= grid06; alllabels[0][7]= grid07; alllabels[0][8]= grid08; 
         alllabels[1][0]= grid10; alllabels[1][1]= grid11; alllabels[1][2]= grid12; alllabels[1][3]= grid13; alllabels[1][4]= grid14; alllabels[1][5]= grid15; alllabels[1][6]= grid16; alllabels[1][7]= grid17; alllabels[1][8]= grid18; 
