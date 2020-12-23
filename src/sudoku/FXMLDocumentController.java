@@ -112,7 +112,6 @@ public class FXMLDocumentController implements Initializable
         }
         
         System.out.println("");
-        
     }
     
     @FXML
@@ -121,6 +120,8 @@ public class FXMLDocumentController implements Initializable
         Button b = ((Button)event.getSource());
         String bText = b.getText();
         
+        clearcolors();
+        box.setStyle("-fx-background-color: rgb(0, 0, 200);");
         box.setText(bText);
         int r = box.getId().charAt(4) - 48;
         int c = box.getId().charAt(5) - 48;
