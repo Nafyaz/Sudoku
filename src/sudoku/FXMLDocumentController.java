@@ -153,9 +153,8 @@ public class FXMLDocumentController implements Initializable
             box.setStyle("-fx-background-color: deepskyblue;");
         }
     }
-   
-    @Override
-    public void initialize(URL url, ResourceBundle rb)
+    
+    private void loadLevel(int level)
     {
         int[][] solved = {
         {4, 3, 5, 2, 6, 9, 7, 8, 1},
@@ -186,7 +185,11 @@ public class FXMLDocumentController implements Initializable
             grid[i] = Arrays.copyOf(temp[i], 9);
             ques[i] = Arrays.copyOf(temp[i], 9);
         }
-        
+    }
+   
+    @Override
+    public void initialize(URL url, ResourceBundle rb)
+    {        
         alllabels[0][0]= grid00; alllabels[0][1]= grid01; alllabels[0][2]= grid02; alllabels[0][3]= grid03; alllabels[0][4]= grid04; alllabels[0][5]= grid05; alllabels[0][6]= grid06; alllabels[0][7]= grid07; alllabels[0][8]= grid08; 
         alllabels[1][0]= grid10; alllabels[1][1]= grid11; alllabels[1][2]= grid12; alllabels[1][3]= grid13; alllabels[1][4]= grid14; alllabels[1][5]= grid15; alllabels[1][6]= grid16; alllabels[1][7]= grid17; alllabels[1][8]= grid18; 
         alllabels[2][0]= grid20; alllabels[2][1]= grid21; alllabels[2][2]= grid22; alllabels[2][3]= grid23; alllabels[2][4]= grid24; alllabels[2][5]= grid25; alllabels[2][6]= grid26; alllabels[2][7]= grid27; alllabels[2][8]= grid28; 
@@ -197,6 +200,9 @@ public class FXMLDocumentController implements Initializable
         alllabels[7][0]= grid70; alllabels[7][1]= grid71; alllabels[7][2]= grid72; alllabels[7][3]= grid73; alllabels[7][4]= grid74; alllabels[7][5]= grid75; alllabels[7][6]= grid76; alllabels[7][7]= grid77; alllabels[7][8]= grid78; 
         alllabels[8][0]= grid80; alllabels[8][1]= grid81; alllabels[8][2]= grid82; alllabels[8][3]= grid83; alllabels[8][4]= grid84; alllabels[8][5]= grid85; alllabels[8][6]= grid86; alllabels[8][7]= grid87; alllabels[8][8]= grid88;        
  
+        
+        loadLevel(1);
+        
         for(int i = 0; i < 9; i++)
         {
             for(int j = 0; j < 9; j++)
