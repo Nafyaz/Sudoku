@@ -5,10 +5,13 @@
  */
 package sudoku;
 
-
+import java.io.*;
+import java.util.Scanner;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +36,7 @@ public class FXMLDocumentController implements Initializable
     private Label box;
     private Label alllabels[][] = new Label[9][9];
     
+    private int[][][] alllevels = new int[50][9][9];
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
     
@@ -154,36 +158,79 @@ public class FXMLDocumentController implements Initializable
         }
     }
     
-    private void loadLevel(int level)
+    private void loadLevels() throws FileNotFoundException
     {
-        int[][] solved = {
-        {4, 3, 5, 2, 6, 9, 7, 8, 1},
-        {6, 8, 2, 5, 7, 1, 4, 9, 3},
-        {1, 9, 7, 8, 3, 4, 5, 6, 2},
-        {8, 2, 6, 1, 9, 5, 3, 4, 7},
-        {3, 7, 4, 6, 8, 2, 9, 1, 5},
-        {9, 5, 1, 7, 4, 3, 6, 2, 8},
-        {5, 1, 9, 3, 2, 6, 8, 7, 4},
-        {2, 4, 8, 9, 5, 7, 1, 3, 6},
-        {7, 6, 3, 4, 1, 8, 2 , 5, 9}       
-        };
+        Scanner sc = new Scanner(new File("Levels\\levels.csv"));
+        sc.useDelimiter(",|\r\n");   //sets the delimiter pattern  
         
-        int[][] temp = {
-        {0, 0, 0, 2, 6, 0, 7, 0, 1},
-        {6, 8, 0, 0, 7, 0, 0, 9, 0},
-        {1, 9, 0, 0, 0, 4, 5, 0, 0},
-        {8, 2, 0, 1, 0, 0, 0, 4, 0},
-        {0, 0, 4, 6, 0, 2, 9, 0, 0},
-        {0, 5, 0, 0, 0, 3, 0, 2, 8},
-        {0, 0, 9, 3, 0, 0, 0, 7, 4},
-        {0, 4, 0, 0, 5, 0, 0, 3, 6},
-        {7, 0, 3, 0, 1, 8, 0 , 0, 0}
-        };
+        int i = 0, j = 0, k = 0, num;
+        String s;
+        while(sc.hasNext())  //returns a boolean value  
+        {
+            s = sc.next();
+//            System.out.println("st" + s + "ed");
+//            if(!s.equals("\n"))
+//            {
+//                num = Integer.parseInt(s);
+//                System.out.println(num);  //find and returns the next complete token from this scanner  
+//            }
+
+            num = Integer.parseInt(s);
+            
+            alllevels[i][j][k] = num;
+            
+            k++;
+            if(k > 8)
+            {
+                k = 0;
+                j++;
+            }
+            if(j > 8)
+            {
+                j = 0;
+                i++;
+            }
+            
+        }
+        sc.close();  //closes the scanner  
         
+//        int[][] solved = {
+//        {4, 3, 5, 2, 6, 9, 7, 8, 1},
+//        {6, 8, 2, 5, 7, 1, 4, 9, 3},
+//        {1, 9, 7, 8, 3, 4, 5, 6, 2},
+//        {8, 2, 6, 1, 9, 5, 3, 4, 7},
+//        {3, 7, 4, 6, 8, 2, 9, 1, 5},
+//        {9, 5, 1, 7, 4, 3, 6, 2, 8},
+//        {5, 1, 9, 3, 2, 6, 8, 7, 4},
+//        {2, 4, 8, 9, 5, 7, 1, 3, 6},
+//        {7, 6, 3, 4, 1, 8, 2 , 5, 9}       
+//        };
+//        
+//        int[][] temp = {
+//        {0, 0, 0, 2, 6, 0, 7, 0, 1},
+//        {6, 8, 0, 0, 7, 0, 0, 9, 0},
+//        {1, 9, 0, 0, 0, 4, 5, 0, 0},
+//        {8, 2, 0, 1, 0, 0, 0, 4, 0},
+//        {0, 0, 4, 6, 0, 2, 9, 0, 0},
+//        {0, 5, 0, 0, 0, 3, 0, 2, 8},
+//        {0, 0, 9, 3, 0, 0, 0, 7, 4},
+//        {0, 4, 0, 0, 5, 0, 0, 3, 6},
+//        {7, 0, 3, 0, 1, 8, 0 , 0, 0}
+//        };
+//        
+//        for(i = 0; i < 9; i++)
+//        {
+//            grid[i] = Arrays.copyOf(temp[i], 9);
+//            ques[i] = Arrays.copyOf(temp[i], 9);
+//        }
+    }
+    
+    void loadLevel(int level)
+    {
         for(int i = 0; i < 9; i++)
         {
-            grid[i] = Arrays.copyOf(temp[i], 9);
-            ques[i] = Arrays.copyOf(temp[i], 9);
+            grid[i] = Arrays.copyOf(alllevels[level][i], 9);
+            ques[i] = Arrays.copyOf(alllevels[level][i], 9);
         }
     }
    
@@ -200,6 +247,15 @@ public class FXMLDocumentController implements Initializable
         alllabels[7][0]= grid70; alllabels[7][1]= grid71; alllabels[7][2]= grid72; alllabels[7][3]= grid73; alllabels[7][4]= grid74; alllabels[7][5]= grid75; alllabels[7][6]= grid76; alllabels[7][7]= grid77; alllabels[7][8]= grid78; 
         alllabels[8][0]= grid80; alllabels[8][1]= grid81; alllabels[8][2]= grid82; alllabels[8][3]= grid83; alllabels[8][4]= grid84; alllabels[8][5]= grid85; alllabels[8][6]= grid86; alllabels[8][7]= grid87; alllabels[8][8]= grid88;        
  
+        
+        try
+        {
+            loadLevels();
+        }
+        catch(FileNotFoundException ex)
+        {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         loadLevel(1);
         
