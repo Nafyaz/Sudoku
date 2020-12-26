@@ -65,6 +65,58 @@ public class FXMLDocumentController implements Initializable
         }
     }
     
+    @FXML
+    private void clicknum(ActionEvent event)
+    {
+        Button b = ((Button)event.getSource());
+        String bText = b.getText();
+        
+        if(box != null)
+        {
+            clearcolors();
+            box.setStyle("-fx-background-color: deepskyblue;");
+            box.setText(bText);
+            int r = box.getId().charAt(4) - 48;
+            int c = box.getId().charAt(5) - 48;
+
+            grid[r][c] = Integer.parseInt(bText);  
+        }      
+    }
+    
+    @FXML
+    private void clickclear(ActionEvent event)
+    {
+        if(box != null)
+        {
+            box.setText("");
+            int r = box.getId().charAt(4) - 48;
+            int c = box.getId().charAt(5) - 48;
+
+            grid[r][c] = 0;  
+            box.setStyle("-fx-background-color: deepskyblue;");
+        }
+    }
+    
+    @FXML
+    private void clickgrid(MouseEvent event)
+    {
+        clearcolors();
+        
+        Label temp = ((Label)event.getSource());
+        
+        int r = temp.getId().charAt(4) - 48;
+        int c = temp.getId().charAt(5) - 48;
+        
+        
+        if(ques[r][c] == 0)
+        {
+            box = temp;
+            box.setStyle("-fx-background-color: deepskyblue;");
+        }
+        else
+            box = null;
+    }
+    
     private boolean checkcell(int r, int c)
     {
         int val = grid[r][c];
@@ -112,53 +164,6 @@ public class FXMLDocumentController implements Initializable
                 }
             }
         }        
-    }
-    
-    @FXML
-    private void clicknum(ActionEvent event)
-    {
-        Button b = ((Button)event.getSource());
-        String bText = b.getText();
-        
-        if(box != null)
-        {
-            clearcolors();
-            box.setStyle("-fx-background-color: deepskyblue;");
-            box.setText(bText);
-            int r = box.getId().charAt(4) - 48;
-            int c = box.getId().charAt(5) - 48;
-
-            grid[r][c] = Integer.parseInt(bText);  
-        }      
-    }
-    
-    @FXML
-    private void clickclear(ActionEvent event)
-    {
-        box.setText("");
-        int r = box.getId().charAt(4) - 48;
-        int c = box.getId().charAt(5) - 48;
-       
-        grid[r][c] = 0;  
-        box.setStyle("-fx-background-color: deepskyblue;");
-    }
-    
-    @FXML
-    private void clickgrid(MouseEvent event)
-    {
-        clearcolors();
-        
-        Label temp = ((Label)event.getSource());
-        
-        int r = temp.getId().charAt(4) - 48;
-        int c = temp.getId().charAt(5) - 48;
-        
-        
-        if(ques[r][c] == 0)
-        {
-            box = temp;
-            box.setStyle("-fx-background-color: deepskyblue;");
-        }
     }
     
     private void loadLevels() throws FileNotFoundException
