@@ -120,13 +120,16 @@ public class FXMLDocumentController implements Initializable
         Button b = ((Button)event.getSource());
         String bText = b.getText();
         
-        clearcolors();
-        box.setStyle("-fx-background-color: deepskyblue;");
-        box.setText(bText);
-        int r = box.getId().charAt(4) - 48;
-        int c = box.getId().charAt(5) - 48;
-       
-        grid[r][c] = Integer.parseInt(bText);        
+        if(box != null)
+        {
+            clearcolors();
+            box.setStyle("-fx-background-color: deepskyblue;");
+            box.setText(bText);
+            int r = box.getId().charAt(4) - 48;
+            int c = box.getId().charAt(5) - 48;
+
+            grid[r][c] = Integer.parseInt(bText);  
+        }      
     }
     
     @FXML
@@ -168,12 +171,6 @@ public class FXMLDocumentController implements Initializable
         while(sc.hasNext())  //returns a boolean value  
         {
             s = sc.next();
-//            System.out.println("st" + s + "ed");
-//            if(!s.equals("\n"))
-//            {
-//                num = Integer.parseInt(s);
-//                System.out.println(num);  //find and returns the next complete token from this scanner  
-//            }
 
             num = Integer.parseInt(s);
             
@@ -205,24 +202,7 @@ public class FXMLDocumentController implements Initializable
 //        {2, 4, 8, 9, 5, 7, 1, 3, 6},
 //        {7, 6, 3, 4, 1, 8, 2 , 5, 9}       
 //        };
-//        
-//        int[][] temp = {
-//        {0, 0, 0, 2, 6, 0, 7, 0, 1},
-//        {6, 8, 0, 0, 7, 0, 0, 9, 0},
-//        {1, 9, 0, 0, 0, 4, 5, 0, 0},
-//        {8, 2, 0, 1, 0, 0, 0, 4, 0},
-//        {0, 0, 4, 6, 0, 2, 9, 0, 0},
-//        {0, 5, 0, 0, 0, 3, 0, 2, 8},
-//        {0, 0, 9, 3, 0, 0, 0, 7, 4},
-//        {0, 4, 0, 0, 5, 0, 0, 3, 6},
-//        {7, 0, 3, 0, 1, 8, 0 , 0, 0}
-//        };
-//        
-//        for(i = 0; i < 9; i++)
-//        {
-//            grid[i] = Arrays.copyOf(temp[i], 9);
-//            ques[i] = Arrays.copyOf(temp[i], 9);
-//        }
+
     }
     
     void loadLevel(int level)
