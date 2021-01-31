@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="127.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.CongratesController">
+<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.CongratesController">
     <stylesheets>
         <URL value="@FXMLStyle.css" />
     </stylesheets>
    <children>
-      <Label layoutX="96.0" layoutY="29.0" text="Congrates" />
-      <Label fx:id="timerLabel" alignment="CENTER" layoutX="19.0" layoutY="78.0" prefHeight="35.0" prefWidth="260.0" />
+      <Label alignment="CENTER" layoutX="50.0" layoutY="28.0" prefHeight="50.0" prefWidth="200.0" text="Take Love, mompu &lt;3" />
+      <Label fx:id="timerLabel" alignment="CENTER" layoutX="20.0" layoutY="87.0" prefHeight="50.0" prefWidth="260.0" />
    </children>
 </AnchorPane>
