@@ -170,9 +170,11 @@ public class FXMLDocumentController implements Initializable
                     else
                     {
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
-//                        wrong;
+                        wrong++;
                     }
                 }
+                else if(ques[i][j] == 0 && grid[i][j] == 0)
+                    wrong++;
             }
         }
 
