@@ -15,14 +15,20 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import static javafx.scene.layout.GridPane.getRowIndex;
+import javafx.stage.Stage;
+import static sudoku.PuzzlesController.getPuzzleLevel;
+import static sudoku.Timer.*;
+
 
 /**
  *
@@ -33,8 +39,10 @@ public class FXMLDocumentController implements Initializable
     @FXML Parent root;
     
     @FXML
-    private Label box;
+    private Label box, timerLabel;
     private Label alllabels[][] = new Label[9][9];
+    
+    private long start, stop;
     
     private int[][][] alllevels = new int[50][9][9];
     private int[][] grid = new int[9][9];
@@ -148,9 +156,9 @@ public class FXMLDocumentController implements Initializable
     }
     
     @FXML
-    private void clickcheck(ActionEvent event)
+    private void clickcheck(ActionEvent event) throws Exception
     {
-        int i, j;
+        int i, j, wrong = 0;
         for(i = 0; i < 9; i++)
         {
             for(j = 0; j < 9; j++)
@@ -160,10 +168,28 @@ public class FXMLDocumentController implements Initializable
                     if(checkcell(i, j))
                         alllabels[i][j].setStyle("-fx-background-color: rgb(0, 255, 0);");
                     else
+                    {
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
+//                        wrong;
+                    }
                 }
             }
-        }        
+        }
+
+        if(wrong == 0)
+        {
+            stop = System.currentTimeMillis();
+            SS = (stop - start)/1000;
+            MM = SS / 60;
+            SS = SS - (MM * 60);
+                        
+            Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrates.fxml"));
+            Scene CongratesScene = new Scene(CongratesParent);
+
+            Stage window = new Stage();
+            window.setScene(CongratesScene);
+            window.show();
+        }
     }
     
     private void loadLevels() throws FileNotFoundException
@@ -171,7 +197,7 @@ public class FXMLDocumentController implements Initializable
         Scanner sc = new Scanner(new File("Levels\\levels.csv"));
         sc.useDelimiter(",|\r\n");   //sets the delimiter pattern  
         
-        int i = 0, j = 0, k = 0, num;
+        int i = 1, j = 0, k = 0, num;
         String s;
         while(sc.hasNext())  //returns a boolean value  
         {
@@ -242,7 +268,9 @@ public class FXMLDocumentController implements Initializable
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        loadLevel(1);
+        int level = getPuzzleLevel();
+        loadLevel(level);
+        
         
         for(int i = 0; i < 9; i++)
         {
@@ -255,6 +283,9 @@ public class FXMLDocumentController implements Initializable
                 }
             }
         }
+        
+        start = System.currentTimeMillis();
+        
     }    
     
 }

@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class PuzzlesController implements Initializable
 {
-    private int level;
+    private static int level;
     @FXML
     private void clickPuzzle(ActionEvent event) throws Exception
     {
@@ -40,7 +40,7 @@ public class PuzzlesController implements Initializable
         window.show();
     }
 
-    public int getPuzzleLevel()
+    public static int getPuzzleLevel()
     {
         return level;
     }

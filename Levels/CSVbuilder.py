@@ -6,7 +6,7 @@ Created on Fri Dec 25 23:23:40 2020
 """
 import pandas as pd
 
-level0 = [
+level1 = [
         [0, 0, 0, 2, 6, 0, 7, 0, 1],
         [6, 8, 0, 0, 7, 0, 0, 9, 0],
         [1, 9, 0, 0, 0, 4, 5, 0, 0],
@@ -17,10 +17,10 @@ level0 = [
         [0, 4, 0, 0, 5, 0, 0, 3, 6],
         [7, 0, 3, 0, 1, 8, 0 , 0, 0]
         ]
-df0 = pd.DataFrame(level0)
+df1 = pd.DataFrame(level1)
 
 
-level1 = [
+level2 = [
         [1, 0, 0, 4, 8, 9, 0, 0, 6],
         [7, 3, 0, 0, 0, 0, 0, 4, 0],
         [0, 0, 0, 0, 0, 1, 2, 9, 5],
@@ -31,9 +31,9 @@ level1 = [
         [0, 2, 0, 0, 0, 0, 0, 3, 7],
         [8, 0, 0, 5, 1, 2, 0, 0, 4]
         ]
-df1 = pd.DataFrame(level1)
+df2 = pd.DataFrame(level2)
 
-df = pd.concat([df0, df1])
+df = pd.concat([df1, df2])
 
 df.to_csv(r'levels.csv', index=False, header=False)
 
