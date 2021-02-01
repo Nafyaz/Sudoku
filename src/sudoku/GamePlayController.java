@@ -34,7 +34,7 @@ import static sudoku.Timer.*;
  *
  * @author ASUS
  */
-public class FXMLDocumentController implements Initializable
+public class GamePlayController implements Initializable
 {
     @FXML Parent root;
     
@@ -194,6 +194,17 @@ public class FXMLDocumentController implements Initializable
         }
     }
     
+    @FXML
+    private void clickback(ActionEvent event) throws Exception
+    {
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("Puzzles.fxml"));
+        Scene puzzlesScene = new Scene(puzzlesParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(puzzlesScene);
+        window.show();
+    }
+    
     private void loadLevels() throws FileNotFoundException
     {
         Scanner sc = new Scanner(new File("Levels\\levels.csv"));
@@ -267,7 +278,7 @@ public class FXMLDocumentController implements Initializable
         }
         catch(FileNotFoundException ex)
         {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GamePlayController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         int level = getPuzzleLevel();

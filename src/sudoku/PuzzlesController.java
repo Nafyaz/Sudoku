@@ -32,7 +32,7 @@ public class PuzzlesController implements Initializable
         String temp = puzzle_no.getId();
         level = (temp.charAt(6) - 48)*10 + (temp.charAt(7) - 48);
         
-        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
         Scene puzzlesScene = new Scene(puzzlesParent);
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="630.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.WelcomeController">
     <stylesheets>
-        <URL value="@FXMLStyle.css" />
+        <URL value="@GamePlayStyle.css" />
     </stylesheets>
    <children>
       <ImageView fitHeight="450.0" fitWidth="450.0" layoutX="125.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
