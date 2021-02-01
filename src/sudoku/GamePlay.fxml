@@ -213,7 +213,7 @@
          </children>
       </GridPane>
       
-      <!--Block 2 2-->  
+            <!--Block 2 2-->  
       <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -282,6 +282,8 @@
       <Button layoutX="568.0" layoutY="178.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
       <Button layoutX="206.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickcheck" text="Check" />
       <Button layoutX="571.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
+      <Label layoutX="563.0" layoutY="298.0" text="Your best" />
+      <Label fx:id="bestTime" layoutX="561.0" layoutY="342.0" prefHeight="50.0" prefWidth="100.0" />
       
    </children>
 </AnchorPane>

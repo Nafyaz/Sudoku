@@ -5,6 +5,9 @@
  */
 package sudoku;
 
+import java.io.File;
+import java.util.Scanner;
+
 /**
  *
  * @author ASUS
@@ -12,5 +15,7 @@ package sudoku;
 public class Timer
 {
     public static long MM, SS;
-    private Timer() {}
+    public static boolean new_record;
+    
+
 }

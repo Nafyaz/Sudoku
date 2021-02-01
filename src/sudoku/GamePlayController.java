@@ -39,7 +39,7 @@ public class GamePlayController implements Initializable
     @FXML Parent root;
     
     @FXML
-    private Label box, timerLabel;
+    private Label box, bestTime;
     private Label alllabels[][] = new Label[9][9];
     
     private long start, stop;
@@ -47,6 +47,8 @@ public class GamePlayController implements Initializable
     private int[][][] alllevels = new int[50][9][9];
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
+    
+    private int[] alltimes = new int[50];
     
     @FXML
     private Label grid00, grid01, grid02, grid03, grid04, grid05, grid06, grid07, grid08, 
@@ -170,21 +172,40 @@ public class GamePlayController implements Initializable
                     else
                     {
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
-                        wrong++;
+//                        wrong++;
                     }
                 }
-                else if(ques[i][j] == 0 && grid[i][j] == 0)
-                    wrong++;
+//                else if(ques[i][j] == 0 && grid[i][j] == 0)
+//                    wrong++;
             }
         }
 
         if(wrong == 0)
         {
             stop = System.currentTimeMillis();
-            SS = (stop - start)/1000;
-            MM = SS / 60;
-            SS = SS - (MM * 60);
-                        
+            
+            new_record = false;
+            int level = getPuzzleLevel();
+            
+            SS = (stop - start)/1000;            
+            if(alltimes[level] == -1 || SS < alltimes[level])
+            {
+                new_record = true;
+                alltimes[level] = (int) SS;
+                
+                MM = SS / 60;
+                SS = SS - MM*60;
+                bestTime.setText(MM + " : " + SS); 
+
+                FileWriter writer = new FileWriter("User Data\\bestTime.csv");
+                for(i = 1; i < 50; i++)
+                {
+                    writer.write(alltimes[i] + "\n");
+                }
+                writer.close();
+            }            
+            
+                                    
             Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrates.fxml"));
             Scene CongratesScene = new Scene(CongratesParent);
 
@@ -193,7 +214,7 @@ public class GamePlayController implements Initializable
             window.show();
         }
     }
-    
+        
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -207,6 +228,7 @@ public class GamePlayController implements Initializable
     
     private void loadLevels() throws FileNotFoundException
     {
+        //Load puzzles
         Scanner sc = new Scanner(new File("Levels\\levels.csv"));
         sc.useDelimiter(",|\r\n");   //sets the delimiter pattern  
         
@@ -233,7 +255,20 @@ public class GamePlayController implements Initializable
             }
             
         }
-        sc.close();  //closes the scanner  
+        sc.close();
+        
+        //Load user time
+        sc = new Scanner(new File("User Data\\bestTime.csv"));
+        sc.useDelimiter(",|\r|\n");
+        
+        i = 1;
+        while(sc.hasNext())
+        {            
+            s = sc.next();            
+            alltimes[i] = Integer.parseInt(s);  
+            i++;
+        }
+        sc.close();
         
 //        int[][] solved = {
 //        {4, 3, 5, 2, 6, 9, 7, 8, 1},
@@ -256,6 +291,17 @@ public class GamePlayController implements Initializable
             grid[i] = Arrays.copyOf(alllevels[level][i], 9);
             ques[i] = Arrays.copyOf(alllevels[level][i], 9);
         }
+        
+        int mm, ss;
+        ss = alltimes[level];
+        if(ss == -1)
+            bestTime.setText("--:--"); 
+        else
+        {
+            mm = ss / 60;
+            ss = ss - mm*60;
+            bestTime.setText(mm + " : " + ss); 
+        }        
     }
    
     @Override

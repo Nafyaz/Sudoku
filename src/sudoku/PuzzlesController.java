@@ -5,6 +5,8 @@
  */
 package sudoku;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -38,6 +40,17 @@ public class PuzzlesController implements Initializable
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(puzzlesScene);
         window.show();
+    }
+    
+    @FXML
+    private void clickClearHistory(ActionEvent event) throws IOException
+    {
+        FileWriter writer = new FileWriter("User Data\\bestTime.csv");
+        for(int i = 1; i < 50; i++)
+        {
+            writer.write(-1 + "\n");
+        }
+        writer.close();
     }
 
     public static int getPuzzleLevel()
