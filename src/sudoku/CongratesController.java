@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import static sudoku.Timer.*;
+import static sudoku.Intermediate.*;
 
 /**
  * FXML Controller class

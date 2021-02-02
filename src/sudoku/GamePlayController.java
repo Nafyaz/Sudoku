@@ -26,8 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import static javafx.scene.layout.GridPane.getRowIndex;
 import javafx.stage.Stage;
-import static sudoku.PuzzlesController.getPuzzleLevel;
-import static sudoku.Timer.*;
+import static sudoku.Intermediate.*;
 
 
 /**
@@ -44,7 +43,6 @@ public class GamePlayController implements Initializable
     
     private long start, stop;
     
-    private int[][][] alllevels = new int[50][9][9];
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
     
@@ -60,7 +58,7 @@ public class GamePlayController implements Initializable
                 grid60, grid61, grid62, grid63, grid64, grid65, grid66, grid67, grid68, 
                 grid70, grid71, grid72, grid73, grid74, grid75, grid76, grid77, grid78, 
                 grid80, grid81, grid82, grid83, grid84, grid85, grid86, grid87, grid88;
-     
+    
     private void clearcolors()
     {
         for(int i = 0; i < 9; i++)
@@ -185,16 +183,16 @@ public class GamePlayController implements Initializable
             stop = System.currentTimeMillis();
             
             new_record = false;
-            int level = getPuzzleLevel();
             
-            SS = (stop - start)/1000;            
+            SS = (stop - start)/1000;    
+            MM = SS / 60;
+            SS = SS - MM*60;
+            
             if(alltimes[level] == -1 || SS < alltimes[level])
             {
                 new_record = true;
-                alltimes[level] = (int) SS;
+                alltimes[level] = (int)MM*60 + (int) SS;
                 
-                MM = SS / 60;
-                SS = SS - MM*60;
                 bestTime.setText(MM + " : " + SS); 
 
                 FileWriter writer = new FileWriter("User Data\\bestTime.csv");
@@ -226,42 +224,13 @@ public class GamePlayController implements Initializable
         window.show();
     }
     
-    private void loadLevels() throws FileNotFoundException
-    {
-        //Load puzzles
-        Scanner sc = new Scanner(new File("Levels\\levels.csv"));
-        sc.useDelimiter(",|\r\n");   //sets the delimiter pattern  
-        
-        int i = 1, j = 0, k = 0, num;
-        String s;
-        while(sc.hasNext())  //returns a boolean value  
-        {
-            s = sc.next();
-
-            num = Integer.parseInt(s);
-            
-            alllevels[i][j][k] = num;
-            
-            k++;
-            if(k > 8)
-            {
-                k = 0;
-                j++;
-            }
-            if(j > 8)
-            {
-                j = 0;
-                i++;
-            }
-            
-        }
-        sc.close();
-        
-        //Load user time
-        sc = new Scanner(new File("User Data\\bestTime.csv"));
+    private void load_times() throws FileNotFoundException //Load user time
+    {                
+        Scanner sc = new Scanner(new File("User Data\\bestTime.csv"));
         sc.useDelimiter(",|\r|\n");
         
-        i = 1;
+        int i = 1;
+        String s;
         while(sc.hasNext())
         {            
             s = sc.next();            
@@ -320,14 +289,13 @@ public class GamePlayController implements Initializable
         
         try
         {
-            loadLevels();
+            load_times();
         }
         catch(FileNotFoundException ex)
         {
             Logger.getLogger(GamePlayController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        int level = getPuzzleLevel();
         loadLevel(level);
         
         

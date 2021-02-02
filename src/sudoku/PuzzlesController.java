@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import static sudoku.Intermediate.*;
 
 /**
  * FXML Controller class
@@ -26,13 +27,16 @@ import javafx.stage.Stage;
  */
 public class PuzzlesController implements Initializable
 {
-    private static int level;
     @FXML
     private void clickPuzzle(ActionEvent event) throws Exception
     {
         Button puzzle_no = ((Button)event.getSource());
         String temp = puzzle_no.getId();
-        level = (temp.charAt(6) - 48)*10 + (temp.charAt(7) - 48);
+        int puzzle = (temp.charAt(6) - 48)*10 + (temp.charAt(7) - 48);
+        
+        level = puzzle + mode*levels_per_mode;
+        
+        System.out.println(puzzle + " " + mode + " " + level);
         
         Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
         Scene puzzlesScene = new Scene(puzzlesParent);
@@ -40,6 +44,15 @@ public class PuzzlesController implements Initializable
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(puzzlesScene);
         window.show();
+    }
+    
+    @FXML
+    private void clickMode(ActionEvent event)
+    {
+        Button mode_no = ((Button)event.getSource());
+        String temp = mode_no.getId();
+        
+        mode = temp.charAt(4) - 48;
     }
     
     @FXML
@@ -51,6 +64,17 @@ public class PuzzlesController implements Initializable
             writer.write(-1 + "\n");
         }
         writer.close();
+    }
+    
+    @FXML
+    private void clickback(ActionEvent event) throws Exception
+    {
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
+        Scene puzzlesScene = new Scene(puzzlesParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(puzzlesScene);
+        window.show();
     }
 
     public static int getPuzzleLevel()

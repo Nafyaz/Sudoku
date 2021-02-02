@@ -9,7 +9,7 @@
         <URL value="@GamePlayStyle.css" />
     </stylesheets>
    <children>
-      <Label alignment="CENTER" layoutX="34.0" layoutY="25.0" prefHeight="50.0" prefWidth="233.0" text="Love you, mompu &lt;3" />
+      <Label alignment="CENTER" layoutX="34.0" layoutY="25.0" prefHeight="50.0" prefWidth="233.0" text="Congrates" />
       <Label fx:id="timerLabel" alignment="CENTER" layoutX="20.0" layoutY="87.0" prefHeight="50.0" prefWidth="260.0" />
    </children>
 </AnchorPane>

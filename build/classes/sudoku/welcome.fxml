@@ -11,12 +11,13 @@
         <URL value="@GamePlayStyle.css" />
     </stylesheets>
    <children>
-      <ImageView fitHeight="450.0" fitWidth="450.0" layoutX="125.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="410.0" fitWidth="450.0" layoutX="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pics/Logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="puzzles" layoutX="315.0" layoutY="509.0" mnemonicParsing="false" onAction="#clickpuzzles" text="Puzzles" />
-      <Button fx:id="exit" layoutX="335.0" layoutY="571.0" mnemonicParsing="false" onAction="#clickexit" text="Exit" />
+      <Button fx:id="puzzles" layoutX="315.0" layoutY="438.0" mnemonicParsing="false" onAction="#clickpuzzles" prefHeight="50.0" text="Puzzles" />
+      <Button fx:id="exit" layoutX="335.0" layoutY="566.0" mnemonicParsing="false" onAction="#clickexit" prefHeight="50.0" text="Exit" />
+      <Button layoutX="288.0" layoutY="502.0" mnemonicParsing="false" onAction="#clickHowToPlay" prefHeight="50.0" text="How To Play" />
    </children>
 </AnchorPane>
