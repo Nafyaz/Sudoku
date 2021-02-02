@@ -130,10 +130,10 @@ public class GamePlayController implements Initializable
                 
                 bestTime.setText(MM + " : " + SS); 
 
-                FileWriter writer = new FileWriter("User Data\\bestTime.csv");
+                FileWriter writer = new FileWriter("User Data\\bestTime.txt");
                 for(i = 0; i < 50; i++)
                 {
-                    writer.write(alltimes[i] + ",");
+                    writer.write(alltimes[i] + "\r\n");
                 }
                 writer.close();
             }            

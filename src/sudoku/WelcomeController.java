@@ -29,13 +29,7 @@ import static sudoku.Intermediate.*;
  * @author ASUS
  */
 public class WelcomeController implements Initializable
-{   
-    @FXML
-    private void clickexit(ActionEvent event)
-    {
-        Platform.exit();
-    }
-    
+{       
     @FXML
     private void clickpuzzles(ActionEvent event) throws Exception
     {
@@ -56,6 +50,12 @@ public class WelcomeController implements Initializable
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(puzzlesScene);
         window.show();
+    }
+    
+    @FXML
+    private void clickexit(ActionEvent event)
+    {
+        Platform.exit();
     }
     
     private void load_levels() throws FileNotFoundException
@@ -139,7 +139,7 @@ public class WelcomeController implements Initializable
     private void load_times() throws FileNotFoundException //Load user time
     {                
         Scanner sc = new Scanner(new File("User Data\\bestTime.csv"));
-        sc.useDelimiter(",");
+        sc.useDelimiter("\r\n");
         
         int i = 0;
         String s;
