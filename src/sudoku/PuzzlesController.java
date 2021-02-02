@@ -28,6 +28,15 @@ import static sudoku.Intermediate.*;
 public class PuzzlesController implements Initializable
 {
     @FXML
+    private Button Mode0, Mode1, Mode2;  
+    private Button allmodes[] = new Button[3];
+    
+    @FXML
+    private Button puzzle00, puzzle01, puzzle02,
+                   puzzle03, puzzle04, puzzle05;
+    private Button allpuzzles[] = new Button[levels_per_mode];
+    
+    @FXML
     private void clickPuzzle(ActionEvent event) throws Exception
     {
         Button puzzle_no = ((Button)event.getSource());
@@ -35,15 +44,50 @@ public class PuzzlesController implements Initializable
         int puzzle = (temp.charAt(6) - 48)*10 + (temp.charAt(7) - 48);
         
         level = puzzle + mode*levels_per_mode;
-        
-        System.out.println(puzzle + " " + mode + " " + level);
-        
+                
         Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
         Scene puzzlesScene = new Scene(puzzlesParent);
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(puzzlesScene);
         window.show();
+    }
+    
+    private void puzzle_button_control()
+    {
+        
+//        System.out.println("-------" + mode + "---------");
+        
+        int i, temp_level;
+        for(i = 0; i < levels_per_mode; i++)
+        {      
+            allpuzzles[i].setDisable(false);
+//            System.out.println("Enabled Puzzle " + i);
+            
+            temp_level = i + mode*levels_per_mode;
+            if(alltimes[temp_level] == -1)            
+                break;   
+        }
+                
+        i++;
+        
+        for(; i < levels_per_mode; i++)
+        {
+//            System.out.println("Disabled Puzzle " + i);
+            allpuzzles[i].setDisable(true);
+        }
+        
+//        System.out.println("-------" + mode + "---------");
+//        for(i = 0; i < 18; i++)
+//            System.out.println(i + " " + alltimes[i]);
+        
+        for(i = 0; i < 3; i++)
+        {
+            if(i == mode)
+                allmodes[i].setStyle("-fx-background-color: deepskyblue;");
+            else
+                allmodes[i].setStyle("-fx-opaciy: 1;");
+        }
     }
     
     @FXML
@@ -53,17 +97,22 @@ public class PuzzlesController implements Initializable
         String temp = mode_no.getId();
         
         mode = temp.charAt(4) - 48;
+        
+        puzzle_button_control();
     }
     
     @FXML
     private void clickClearHistory(ActionEvent event) throws IOException
     {
         FileWriter writer = new FileWriter("User Data\\bestTime.csv");
-        for(int i = 1; i < 50; i++)
+        for(int i = 0; i < 50; i++)
         {
+            alltimes[i] = -1;
             writer.write(-1 + "\n");
         }
         writer.close();
+        
+        puzzle_button_control();
     }
     
     @FXML
@@ -88,7 +137,12 @@ public class PuzzlesController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+        allpuzzles[0] = puzzle00; allpuzzles[1] = puzzle01; allpuzzles[2] = puzzle02;
+        allpuzzles[3] = puzzle03; allpuzzles[4] = puzzle04; allpuzzles[5] = puzzle05;
+        
+        allmodes[0] = Mode0; allmodes[1] = Mode1; allmodes[2] = Mode2;
+        
+        puzzle_button_control();
     }    
     
 }

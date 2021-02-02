@@ -46,7 +46,6 @@ public class GamePlayController implements Initializable
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
     
-    private int[] alltimes = new int[50];
     
     @FXML
     private Label grid00, grid01, grid02, grid03, grid04, grid05, grid06, grid07, grid08, 
@@ -59,71 +58,7 @@ public class GamePlayController implements Initializable
                 grid70, grid71, grid72, grid73, grid74, grid75, grid76, grid77, grid78, 
                 grid80, grid81, grid82, grid83, grid84, grid85, grid86, grid87, grid88;
     
-    private void clearcolors()
-    {
-        for(int i = 0; i < 9; i++)
-        {
-            for(int j = 0; j < 9; j++)
-            {
-                if(ques[i][j] == 0)
-                {
-                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
-                }
-            }
-        }
-    }
-    
-    @FXML
-    private void clicknum(ActionEvent event)
-    {
-        Button b = ((Button)event.getSource());
-        String bText = b.getText();
-        
-        if(box != null)
-        {
-            clearcolors();
-            box.setStyle("-fx-background-color: deepskyblue;");
-            box.setText(bText);
-            int r = box.getId().charAt(4) - 48;
-            int c = box.getId().charAt(5) - 48;
 
-            grid[r][c] = Integer.parseInt(bText);  
-        }      
-    }
-    
-    @FXML
-    private void clickclear(ActionEvent event)
-    {
-        if(box != null)
-        {
-            box.setText("");
-            int r = box.getId().charAt(4) - 48;
-            int c = box.getId().charAt(5) - 48;
-
-            grid[r][c] = 0;  
-            box.setStyle("-fx-background-color: deepskyblue;");
-        }
-    }
-    
-    @FXML
-    private void clickgrid(MouseEvent event)
-    {
-        clearcolors();
-        
-        Label temp = ((Label)event.getSource());
-        
-        int r = temp.getId().charAt(4) - 48;
-        int c = temp.getId().charAt(5) - 48;
-        
-        
-        if(ques[r][c] == 0)
-        {
-            box = temp;
-            box.setStyle("-fx-background-color: deepskyblue;");
-        }
-        else
-            box = null;
-    }
     
     private boolean checkcell(int r, int c)
     {
@@ -155,8 +90,7 @@ public class GamePlayController implements Initializable
         return true;
     }
     
-    @FXML
-    private void clickcheck(ActionEvent event) throws Exception
+    private void check_all() throws Exception
     {
         int i, j, wrong = 0;
         for(i = 0; i < 9; i++)
@@ -170,11 +104,11 @@ public class GamePlayController implements Initializable
                     else
                     {
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
-                        wrong++;
+//                        wrong++;
                     }
                 }
-                else if(ques[i][j] == 0 && grid[i][j] == 0)
-                    wrong++;
+//                else if(ques[i][j] == 0 && grid[i][j] == 0)
+//                    wrong++;
             }
         }
 
@@ -196,7 +130,7 @@ public class GamePlayController implements Initializable
                 bestTime.setText(MM + " : " + SS); 
 
                 FileWriter writer = new FileWriter("User Data\\bestTime.csv");
-                for(i = 1; i < 50; i++)
+                for(i = 0; i < 50; i++)
                 {
                     writer.write(alltimes[i] + "\n");
                 }
@@ -212,6 +146,77 @@ public class GamePlayController implements Initializable
             window.show();
         }
     }
+    
+//    private void clearcolors()
+//    {
+//        for(int i = 0; i < 9; i++)
+//        {
+//            for(int j = 0; j < 9; j++)
+//            {
+//                if(ques[i][j] == 0)
+//                {
+//                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
+//                }
+//            }
+//        }
+//    }
+    
+    @FXML
+    private void clicknum(ActionEvent event) throws Exception
+    {
+        Button b = ((Button)event.getSource());
+        String bText = b.getText();
+        
+        if(box != null)
+        {
+//            clearcolors();
+            box.setStyle("-fx-background-color: deepskyblue;");
+            box.setText(bText);
+            int r = box.getId().charAt(4) - 48;
+            int c = box.getId().charAt(5) - 48;
+
+            grid[r][c] = Integer.parseInt(bText);  
+            
+            check_all();
+        }      
+    }
+    
+    @FXML
+    private void clickclear(ActionEvent event) throws Exception
+    {
+        if(box != null)
+        {
+            box.setText("");
+            int r = box.getId().charAt(4) - 48;
+            int c = box.getId().charAt(5) - 48;
+
+            grid[r][c] = 0;  
+            box.setStyle("-fx-background-color: deepskyblue;");
+            
+            check_all();
+        }
+    }
+    
+    @FXML
+    private void clickgrid(MouseEvent event)
+    {
+//        clearcolors();
+        
+        Label temp = ((Label)event.getSource());
+        
+        int r = temp.getId().charAt(4) - 48;
+        int c = temp.getId().charAt(5) - 48;
+        
+        
+        if(ques[r][c] == 0)
+        {
+            box = temp;
+            box.setStyle("-fx-background-color: deepskyblue;");
+        }
+        else
+            box = null;
+    }
+    
         
     @FXML
     private void clickback(ActionEvent event) throws Exception
@@ -224,34 +229,7 @@ public class GamePlayController implements Initializable
         window.show();
     }
     
-    private void load_times() throws FileNotFoundException //Load user time
-    {                
-        Scanner sc = new Scanner(new File("User Data\\bestTime.csv"));
-        sc.useDelimiter(",|\r|\n");
-        
-        int i = 1;
-        String s;
-        while(sc.hasNext())
-        {            
-            s = sc.next();            
-            alltimes[i] = Integer.parseInt(s);  
-            i++;
-        }
-        sc.close();
-        
-//        int[][] solved = {
-//        {4, 3, 5, 2, 6, 9, 7, 8, 1},
-//        {6, 8, 2, 5, 7, 1, 4, 9, 3},
-//        {1, 9, 7, 8, 3, 4, 5, 6, 2},
-//        {8, 2, 6, 1, 9, 5, 3, 4, 7},
-//        {3, 7, 4, 6, 8, 2, 9, 1, 5},
-//        {9, 5, 1, 7, 4, 3, 6, 2, 8},
-//        {5, 1, 9, 3, 2, 6, 8, 7, 4},
-//        {2, 4, 8, 9, 5, 7, 1, 3, 6},
-//        {7, 6, 3, 4, 1, 8, 2 , 5, 9}       
-//        };
-
-    }
+    
     
     void loadLevel(int level)
     {
@@ -286,16 +264,7 @@ public class GamePlayController implements Initializable
         alllabels[7][0]= grid70; alllabels[7][1]= grid71; alllabels[7][2]= grid72; alllabels[7][3]= grid73; alllabels[7][4]= grid74; alllabels[7][5]= grid75; alllabels[7][6]= grid76; alllabels[7][7]= grid77; alllabels[7][8]= grid78; 
         alllabels[8][0]= grid80; alllabels[8][1]= grid81; alllabels[8][2]= grid82; alllabels[8][3]= grid83; alllabels[8][4]= grid84; alllabels[8][5]= grid85; alllabels[8][6]= grid86; alllabels[8][7]= grid87; alllabels[8][8]= grid88;        
  
-        
-        try
-        {
-            load_times();
-        }
-        catch(FileNotFoundException ex)
-        {
-            Logger.getLogger(GamePlayController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+               
         loadLevel(level);
         
         

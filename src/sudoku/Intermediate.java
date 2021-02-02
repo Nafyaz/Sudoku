@@ -16,8 +16,9 @@ public class Intermediate
 {
     public static long MM, SS;
     public static boolean new_record;
-    public static int level, mode = 0, levels_per_mode = 6;
-    public static boolean levels_loaded = false;
+    public static int level, mode, levels_per_mode = 6;
+    public static boolean all_loaded = false;
     public static int[][][] alllevels = new int[50][9][9];
+    public static int[] alltimes = new int[50];
 
 }

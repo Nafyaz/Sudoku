@@ -24,12 +24,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="puzzle01" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 1" />
-            <Button fx:id="puzzle02" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 2" GridPane.columnIndex="1" />
-            <Button fx:id="puzzle03" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 3" GridPane.columnIndex="2" />
-            <Button fx:id="puzzle04" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 4" GridPane.rowIndex="1" />
-            <Button fx:id="puzzle05" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="puzzle06" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="puzzle00" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 1" />
+            <Button fx:id="puzzle01" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 2" GridPane.columnIndex="1" />
+            <Button fx:id="puzzle02" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 3" GridPane.columnIndex="2" />
+            <Button fx:id="puzzle03" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 4" GridPane.rowIndex="1" />
+            <Button fx:id="puzzle04" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="puzzle05" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <HBox alignment="CENTER" layoutX="62.0" layoutY="390.0" prefHeight="100.0" prefWidth="588.0" spacing="56.0">
