@@ -32,15 +32,15 @@
             <Button fx:id="puzzle05" mnemonicParsing="false" onAction="#clickPuzzle" text="Puzzle 6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <HBox alignment="CENTER" layoutX="62.0" layoutY="390.0" prefHeight="100.0" prefWidth="588.0" spacing="56.0">
+      <HBox alignment="CENTER" layoutX="61.0" layoutY="435.0" prefHeight="100.0" prefWidth="588.0" spacing="56.0">
          <children>
             <Button fx:id="Mode0" mnemonicParsing="false" onAction="#clickMode" text="Easy" />
             <Button fx:id="Mode1" mnemonicParsing="false" onAction="#clickMode" text="Normal" />
             <Button fx:id="Mode2" mnemonicParsing="false" onAction="#clickMode" text="Hard" />
          </children>
       </HBox>
-      <Button layoutX="272.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickClearHistory" text="Clear History" />
-      <Button layoutX="591.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
+      <Button layoutX="271.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickClearHistory" text="Clear History" />
+      <Button layoutX="575.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
    </children>
     
 </AnchorPane>

@@ -11,8 +11,8 @@
         <URL value="@GamePlayStyle.css" />
     </stylesheets>
     <children>
-        <TextArea layoutX="124.0" layoutY="76.0" prefHeight="243.0" prefWidth="452.0" text="A Sudoku puzzle consists of a 9x9 grid, further divided up into nine 3x3 sections. Some numbers of  the grid cells are provided with fixed numbers from 1 to 9.&#10;&#10;The aim of the puzzle is to completely fill the remainder of the grid with numbers, such that every 3x3 box, every row and every column contains each of the numbers from 1 to 9." wrapText="true" />
+        <TextArea editable="false" layoutX="124.0" layoutY="76.0" prefHeight="257.0" prefWidth="452.0" text="A Sudoku puzzle consists of a 9x9 grid, further divided up into nine 3x3 sections. Some numbers of  the grid cells are provided with fixed numbers from 1 to 9.&#10;&#10;The aim of the puzzle is to completely fill the remainder of the grid with numbers, such that every 3x3 box, every row and every column contains each of the numbers from 1 to 9." wrapText="true" />
         <TextField alignment="CENTER" layoutX="202.0" layoutY="14.0" prefHeight="50.0" text="How To Play" />
-      <Button layoutX="581.0" layoutY="530.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
+      <Button layoutX="575.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
     </children>
 </AnchorPane>

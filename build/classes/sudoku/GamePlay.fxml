@@ -14,7 +14,7 @@
     </stylesheets>
     <children>
       <!--Block 0 0-->  
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="75.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -39,7 +39,7 @@
       </GridPane>
       
       <!--Block 0 1-->  
-      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="174.0" layoutY="75.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,7 +64,7 @@
       </GridPane>
       
       <!--Block 0 2-->  
-      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="334.0" layoutY="75.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -89,7 +89,7 @@
       </GridPane>
       
       <!--Block 1 0-->        
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="235.0" prefHeight="150.0" prefWidth="150.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -114,7 +114,7 @@
       </GridPane>
       
       <!--Block 1 1-->  
-      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="174.0" layoutY="235.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -139,7 +139,7 @@
       </GridPane>
       
       <!--Block 1 2-->  
-      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="178.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="334.0" layoutY="235.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -164,7 +164,7 @@
       </GridPane>   
       
       <!--Block 2 0-->  
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="395.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -189,7 +189,7 @@
       </GridPane>
            
       <!--Block 2 1-->  
-      <GridPane gridLinesVisible="true" layoutX="178.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="174.0" layoutY="395.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -214,7 +214,7 @@
       </GridPane>
       
             <!--Block 2 2-->  
-      <GridPane gridLinesVisible="true" layoutX="342.0" layoutY="342.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane gridLinesVisible="true" layoutX="334.0" layoutY="395.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -239,7 +239,7 @@
       </GridPane>
       
       <!--NUMBER BUTTONS-->  
-      <GridPane fx:id="num_bt" gridLinesVisible="true" layoutX="536.0" layoutY="14.0" prefHeight="150.0" prefWidth="150.0">
+      <GridPane fx:id="num_bt" gridLinesVisible="true" layoutX="536.0" layoutY="75.0" prefHeight="150.0" prefWidth="150.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -279,10 +279,12 @@
             </Button>
          </children>
       </GridPane>
-      <Button layoutX="568.0" layoutY="178.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
-      <Button layoutX="571.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
-      <Label layoutX="563.0" layoutY="298.0" text="Your best" />
-      <Label fx:id="bestTime" layoutX="561.0" layoutY="342.0" prefHeight="50.0" prefWidth="100.0" />
+      <Button layoutX="568.0" layoutY="235.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
+      <Button layoutX="575.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
+      <Label layoutX="564.0" layoutY="350.0" text="Your best" />
+      <Label fx:id="bestTime" layoutX="565.0" layoutY="395.0" prefHeight="50.0" prefWidth="100.0" />
+      <Label fx:id="puzzleHeader" layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="150.0" />
+      <Label fx:id="modeHeader" layoutX="536.0" layoutY="14.0" prefHeight="35.0" prefWidth="150.0" />
       
    </children>
 </AnchorPane>

@@ -58,7 +58,8 @@ public class GamePlayController implements Initializable
                 grid70, grid71, grid72, grid73, grid74, grid75, grid76, grid77, grid78, 
                 grid80, grid81, grid82, grid83, grid84, grid85, grid86, grid87, grid88;
     
-
+    @FXML
+    private Label puzzleHeader, modeHeader;
     
     private boolean checkcell(int r, int c)
     {
@@ -100,15 +101,15 @@ public class GamePlayController implements Initializable
                 if(ques[i][j] == 0 && grid[i][j] != 0)
                 {
                     if(checkcell(i, j))
-                        alllabels[i][j].setStyle("-fx-background-color: rgb(0, 255, 0);");
+                        alllabels[i][j].setStyle("-fx-background-color: rgb(135, 248, 105);");
                     else
                     {
-                        alllabels[i][j].setStyle("-fx-background-color: rgb(255, 0, 0);");
-//                        wrong++;
+                        alllabels[i][j].setStyle("-fx-background-color: rgb(255, 51, 51);");
+                        wrong++;
                     }
                 }
-//                else if(ques[i][j] == 0 && grid[i][j] == 0)
-//                    wrong++;
+                else if(ques[i][j] == 0 && grid[i][j] == 0)
+                    wrong++;
             }
         }
 
@@ -147,19 +148,19 @@ public class GamePlayController implements Initializable
         }
     }
     
-//    private void clearcolors()
-//    {
-//        for(int i = 0; i < 9; i++)
-//        {
-//            for(int j = 0; j < 9; j++)
-//            {
-//                if(ques[i][j] == 0)
-//                {
-//                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
-//                }
-//            }
-//        }
-//    }
+    private void clearcolors()
+    {
+        for(int i = 0; i < 9; i++)
+        {
+            for(int j = 0; j < 9; j++)
+            {
+                if(ques[i][j] == 0)
+                {
+                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
+                }
+            }
+        }
+    }
     
     @FXML
     private void clicknum(ActionEvent event) throws Exception
@@ -169,8 +170,8 @@ public class GamePlayController implements Initializable
         
         if(box != null)
         {
-//            clearcolors();
-            box.setStyle("-fx-background-color: deepskyblue;");
+            clearcolors();
+            box.setStyle("-fx-background-color: lightcyan;");
             box.setText(bText);
             int r = box.getId().charAt(4) - 48;
             int c = box.getId().charAt(5) - 48;
@@ -191,7 +192,7 @@ public class GamePlayController implements Initializable
             int c = box.getId().charAt(5) - 48;
 
             grid[r][c] = 0;  
-            box.setStyle("-fx-background-color: deepskyblue;");
+            box.setStyle("-fx-background-color: lightcyan;");
             
             check_all();
         }
@@ -200,7 +201,7 @@ public class GamePlayController implements Initializable
     @FXML
     private void clickgrid(MouseEvent event)
     {
-//        clearcolors();
+        clearcolors();
         
         Label temp = ((Label)event.getSource());
         
@@ -211,7 +212,7 @@ public class GamePlayController implements Initializable
         if(ques[r][c] == 0)
         {
             box = temp;
-            box.setStyle("-fx-background-color: deepskyblue;");
+            box.setStyle("-fx-background-color: lightcyan;");
         }
         else
             box = null;
@@ -274,11 +275,27 @@ public class GamePlayController implements Initializable
             {
                 if(ques[i][j] != 0)
                 {
-                    alllabels[i][j].setStyle("-fx-background-color: rgb(0, 150, 0); -fx-opacity: 1.0;");
+                    alllabels[i][j].setStyle("-fx-background-color: rgb(180, 181, 181);");
                     alllabels[i][j].setText(String.valueOf(ques[i][j]));
                 }
             }
         }
+        
+        puzzleHeader.setText("Puzzle " + (level - mode*levels_per_mode + 1));
+        switch(mode)
+        {
+            case 0:
+                modeHeader.setText("Easy");
+                break;
+            case 1:
+                modeHeader.setText("Normal");
+                break;
+            case 2:
+                modeHeader.setText("Hard");
+                break;
+        }
+        
+        
         
         start = System.currentTimeMillis();
         
