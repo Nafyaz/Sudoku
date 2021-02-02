@@ -139,7 +139,7 @@ public class WelcomeController implements Initializable
     private void load_times() throws FileNotFoundException //Load user time
     {                
         Scanner sc = new Scanner(new File("User Data\\bestTime.csv"));
-        sc.useDelimiter(",|\r|\n");
+        sc.useDelimiter(",");
         
         int i = 0;
         String s;

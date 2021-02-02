@@ -133,7 +133,7 @@ public class GamePlayController implements Initializable
                 FileWriter writer = new FileWriter("User Data\\bestTime.csv");
                 for(i = 0; i < 50; i++)
                 {
-                    writer.write(alltimes[i] + "\n");
+                    writer.write(alltimes[i] + ",");
                 }
                 writer.close();
             }            

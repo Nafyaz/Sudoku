@@ -108,7 +108,7 @@ public class PuzzlesController implements Initializable
         for(int i = 0; i < 50; i++)
         {
             alltimes[i] = -1;
-            writer.write(-1 + "\n");
+            writer.write(-1 + ",");
         }
         writer.close();
         
