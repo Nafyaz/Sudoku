@@ -174,6 +174,26 @@ public class GamePlayController implements Initializable
         window.show();
         
     }
+    
+    @FXML
+    private void clickgrid(MouseEvent event) throws Exception
+    {
+        check_all();
+        
+        Label temp = ((Label)event.getSource());
+        
+        int r = temp.getId().charAt(4) - 48;
+        int c = temp.getId().charAt(5) - 48;
+        
+        
+        if(ques[r][c] == 0)
+        {
+            box = temp;
+            paint_selected(box);
+        }
+        else
+            box = null;
+    }
             
     @FXML
     private void clicknum(ActionEvent event) throws Exception
@@ -214,26 +234,16 @@ public class GamePlayController implements Initializable
     }
     
     @FXML
-    private void clickgrid(MouseEvent event) throws Exception
+    private void clickreset(ActionEvent event) throws Exception
     {
-        check_all();
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
+        Scene puzzlesScene = new Scene(puzzlesParent);
         
-        Label temp = ((Label)event.getSource());
-        
-        int r = temp.getId().charAt(4) - 48;
-        int c = temp.getId().charAt(5) - 48;
-        
-        
-        if(ques[r][c] == 0)
-        {
-            box = temp;
-            paint_selected(box);
-        }
-        else
-            box = null;
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(puzzlesScene);
+        window.show();
     }
-    
-        
+            
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -309,8 +319,6 @@ public class GamePlayController implements Initializable
                 modeHeader.setText("Hard");
                 break;
         }
-        
-        
         
         start = System.currentTimeMillis();
         
