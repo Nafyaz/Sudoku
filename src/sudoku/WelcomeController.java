@@ -138,7 +138,7 @@ public class WelcomeController implements Initializable
     
     private void load_times() throws FileNotFoundException //Load user time
     {                
-        Scanner sc = new Scanner(new File("User Data\\bestTime.csv"));
+        Scanner sc = new Scanner(new File("User Data\\bestTime.txt"));
         sc.useDelimiter("\r\n");
         
         int i = 0;

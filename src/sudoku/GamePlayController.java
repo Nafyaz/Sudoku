@@ -60,6 +60,24 @@ public class GamePlayController implements Initializable
     @FXML
     private Label puzzleHeader, modeHeader;
     
+    private void clear_color(Label cell)
+    {
+        cell.setStyle("-fx-opaciy: 1;");
+    }
+    private void paint_selected(Label cell)
+    {
+        cell.setStyle("-fx-background-color: lightcyan;");
+    }
+    private void paint_right(Label cell)
+    {
+        cell.setStyle("-fx-background-color: rgb(135, 248, 105);");
+    }
+    private void paint_wrong(Label cell)
+    {
+        cell.setStyle("-fx-background-color: rgb(255, 51, 51);");
+    }
+    
+    
     private boolean check_cell(int r, int c)
     {
         int val = grid[r][c];
@@ -90,7 +108,7 @@ public class GamePlayController implements Initializable
         return true;
     }
     
-    private void check_all(ActionEvent event) throws Exception
+    private int check_all()
     {
         int i, j, wrong = 0;
         for(i = 0; i < 9; i++)
@@ -101,68 +119,62 @@ public class GamePlayController implements Initializable
                 {
                     if(check_cell(i, j))
                     {
-//                        alllabels[i][j].setStyle("-fx-background-color: rgb(135, 248, 105);");
+                        clear_color(alllabels[i][j]);
+//                        paint_right(alllabels[i][j]);
                     }
                     else
                     {
-                        alllabels[i][j].setStyle("-fx-background-color: rgb(255, 51, 51);");
+                        paint_wrong(alllabels[i][j]);
                         wrong++;
                     }
                 }
                 else if(ques[i][j] == 0 && grid[i][j] == 0)
-                    wrong++;
-            }
-        }
-
-        if(wrong == 0)
-        {
-            stop = System.currentTimeMillis();
-            
-            new_record = false;
-            
-            SS = (stop - start)/1000;    
-            MM = SS / 60;
-            SS = SS - MM*60;
-            
-            if(alltimes[level] == -1 || SS < alltimes[level])
-            {
-                new_record = true;
-                alltimes[level] = (int)MM*60 + (int) SS;
-                
-                bestTime.setText(MM + " : " + SS); 
-
-                FileWriter writer = new FileWriter("User Data\\bestTime.txt");
-                for(i = 0; i < 50; i++)
                 {
-                    writer.write(alltimes[i] + "\r\n");
-                }
-                writer.close();
-            }            
-            
-                                    
-            Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrates.fxml"));
-            Scene CongratesScene = new Scene(CongratesParent);
-
-            Stage window = new Stage();
-            window.setScene(CongratesScene);
-            window.show();
-        }
-    }
-    
-    private void clearcolors()
-    {
-        for(int i = 0; i < 9; i++)
-        {
-            for(int j = 0; j < 9; j++)
-            {
-                if(ques[i][j] == 0 && (grid[i][j] == 0 || check_cell(i, j) == true))
-                {                    
-                    alllabels[i][j].setStyle("-fx-opaciy: 1;");  
+                    clear_color(alllabels[i][j]);
+                    wrong++;
                 }
             }
         }
+        
+        return wrong;
     }
-    
+
+    private void all_right(ActionEvent event)  throws Exception
+    {        
+        stop = System.currentTimeMillis();
+
+        new_record = false;
+
+        SS = (stop - start)/1000;    
+        MM = SS / 60;
+        SS = SS - MM*60;
+
+        int i;
+        if(alltimes[level] == -1 || SS < alltimes[level])
+        {                
+            new_record = true;
+            alltimes[level] = (int)MM*60 + (int) SS;
+
+            bestTime.setText(MM + " : " + SS); 
+
+            FileWriter writer = new FileWriter("User Data\\bestTime.txt");
+            for(i = 0; i < 50; i++)
+            {
+                writer.write(alltimes[i] + "\r\n");
+            }
+            writer.close();                                
+        }            
+
+
+        Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrates.fxml"));
+        Scene CongratesScene = new Scene(CongratesParent);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(CongratesScene);
+        window.show();
+        
+    }
+            
     @FXML
     private void clicknum(ActionEvent event) throws Exception
     {
@@ -170,16 +182,18 @@ public class GamePlayController implements Initializable
         String bText = b.getText();
         
         if(box != null)
-        {
-            clearcolors();
-            box.setStyle("-fx-background-color: lightcyan;");
+        {            
             box.setText(bText);
             int r = box.getId().charAt(4) - 48;
             int c = box.getId().charAt(5) - 48;
 
             grid[r][c] = Integer.parseInt(bText);  
             
-            check_all(event);
+            if(check_all() == 0)
+                all_right(event);
+            
+            if(check_cell(r, c) == true)
+                paint_selected(box);
         }      
     }
     
@@ -193,16 +207,16 @@ public class GamePlayController implements Initializable
             int c = box.getId().charAt(5) - 48;
 
             grid[r][c] = 0;  
-            box.setStyle("-fx-background-color: lightcyan;");
             
-            check_all(event);
+            check_all();
+            paint_selected(box);                    
         }
     }
     
     @FXML
     private void clickgrid(MouseEvent event) throws Exception
     {
-        clearcolors();
+        check_all();
         
         Label temp = ((Label)event.getSource());
         
@@ -213,7 +227,7 @@ public class GamePlayController implements Initializable
         if(ques[r][c] == 0)
         {
             box = temp;
-            box.setStyle("-fx-background-color: lightcyan;");
+            paint_selected(box);
         }
         else
             box = null;
