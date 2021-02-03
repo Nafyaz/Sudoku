@@ -55,7 +55,10 @@ public class GamePlayController implements Initializable
                     Thread.sleep(1000);
                     SS++;
                     if(SS >= 60)
+                    {
                         MM++;
+                        SS = 0;
+                    }
                 } 
                 catch (Exception e) 
                 { 
@@ -265,7 +268,7 @@ public class GamePlayController implements Initializable
     }
     
     @FXML
-    private void clickreset(ActionEvent event) throws Exception
+    private void clickrestart(ActionEvent event) throws Exception
     {
         timerThread.stop();
         
