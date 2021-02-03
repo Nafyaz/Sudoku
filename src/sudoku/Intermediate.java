@@ -20,5 +20,6 @@ public class Intermediate
     public static boolean all_loaded = false;
     public static int[][][] alllevels = new int[50][9][9];
     public static int[] alltimes = new int[50];
-
+    
+    private void Intermediate() {}
 }
