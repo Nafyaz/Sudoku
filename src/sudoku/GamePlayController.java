@@ -25,6 +25,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import static javafx.scene.layout.GridPane.getRowIndex;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
@@ -34,9 +35,7 @@ import static sudoku.Intermediate.*;
  * @author ASUS
  */
 public class GamePlayController implements Initializable
-{
-    @FXML Parent root;
-    
+{    
     @FXML
     private Label box, bestTime;
     private Label alllabels[][] = new Label[9][9];
@@ -61,7 +60,7 @@ public class GamePlayController implements Initializable
     @FXML
     private Label puzzleHeader, modeHeader;
     
-    private boolean checkcell(int r, int c)
+    private boolean check_cell(int r, int c)
     {
         int val = grid[r][c];
         
@@ -91,7 +90,7 @@ public class GamePlayController implements Initializable
         return true;
     }
     
-    private void check_all() throws Exception
+    private void check_all(ActionEvent event) throws Exception
     {
         int i, j, wrong = 0;
         for(i = 0; i < 9; i++)
@@ -100,8 +99,10 @@ public class GamePlayController implements Initializable
             {
                 if(ques[i][j] == 0 && grid[i][j] != 0)
                 {
-                    if(checkcell(i, j))
-                        alllabels[i][j].setStyle("-fx-background-color: rgb(135, 248, 105);");
+                    if(check_cell(i, j))
+                    {
+//                        alllabels[i][j].setStyle("-fx-background-color: rgb(135, 248, 105);");
+                    }
                     else
                     {
                         alllabels[i][j].setStyle("-fx-background-color: rgb(255, 51, 51);");
@@ -154,8 +155,8 @@ public class GamePlayController implements Initializable
         {
             for(int j = 0; j < 9; j++)
             {
-                if(ques[i][j] == 0)
-                {
+                if(ques[i][j] == 0 && (grid[i][j] == 0 || check_cell(i, j) == true))
+                {                    
                     alllabels[i][j].setStyle("-fx-opaciy: 1;");  
                 }
             }
@@ -178,7 +179,7 @@ public class GamePlayController implements Initializable
 
             grid[r][c] = Integer.parseInt(bText);  
             
-            check_all();
+            check_all(event);
         }      
     }
     
@@ -194,12 +195,12 @@ public class GamePlayController implements Initializable
             grid[r][c] = 0;  
             box.setStyle("-fx-background-color: lightcyan;");
             
-            check_all();
+            check_all(event);
         }
     }
     
     @FXML
-    private void clickgrid(MouseEvent event)
+    private void clickgrid(MouseEvent event) throws Exception
     {
         clearcolors();
         
