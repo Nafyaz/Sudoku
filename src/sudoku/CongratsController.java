@@ -19,7 +19,10 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 
-
+/**
+ * FXML Controller class for the congrats message page.
+ * @author User
+ */
 public class CongratsController implements Initializable
 {
     @FXML

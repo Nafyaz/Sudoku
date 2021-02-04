@@ -23,15 +23,21 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the growth statistics page
  *
- * @author ASUS
+ * @author Tauseef, Ishmam
  */
 public class GrowthStatsController implements Initializable
 {
     @FXML 
     private Button backBtn;
     
+    /**
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception Exception when files are not loaded correctly.
+     * @author Tauseef
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -45,7 +51,8 @@ public class GrowthStatsController implements Initializable
     
 
     /**
-     * Initializes the controller class.
+     * Initializes the controller class and draws the line plot.
+     * @author Ishmam, Tauseef
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -55,8 +62,8 @@ public class GrowthStatsController implements Initializable
         xAxis.setLabel("Levels"); 
 
         //Defining the y axis   
-        NumberAxis yAxis = new NumberAxis   (0, 150, 10); 
-        yAxis.setLabel("Best Time"); 
+        NumberAxis yAxis = new NumberAxis   (0, 420, 20); 
+        yAxis.setLabel("Best Time in seconds"); 
 
         //Creating the line chart 
         LineChart linechart = new LineChart(xAxis, yAxis);  
