@@ -54,6 +54,18 @@ public class WelcomeController implements Initializable
      * @author Tauseef
      */
     @FXML
+    private void clickGraph(ActionEvent event) throws Exception
+    {        
+        growthstatsevent = event;
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GrowthStats.fxml"));
+        Scene puzzlesScene = new Scene(puzzlesParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(puzzlesScene);
+        window.show();
+    }
+    
+    @FXML
     private void clickHowToPlay(ActionEvent event) throws Exception
     {
         Parent puzzlesParent = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));

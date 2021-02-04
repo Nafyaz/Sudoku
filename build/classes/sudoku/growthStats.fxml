@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="630.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.GrowthStatsController">
+    <stylesheets>
+        <URL value="@GamePlayStyle.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="280.0" layoutY="149.0" prefHeight="76.0" prefWidth="151.0" text="Testing" />
+      <Button fx:id="backBtn" layoutX="575.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickback" text="Back" />
+   </children>
+</AnchorPane>

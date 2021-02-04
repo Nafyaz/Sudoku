@@ -53,6 +53,7 @@ public class GamePlayController implements Initializable
         /**
          * Function to calculate the time taken to solve.
          */
+
         public void run() 
         { 
             while(true)
