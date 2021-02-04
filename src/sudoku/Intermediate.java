@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ASUS
+ * @author Nafis
  */
 public class Intermediate
 {

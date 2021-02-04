@@ -24,6 +24,12 @@ import javafx.stage.Stage;
 public class HowToPlayController implements Initializable
 {
     
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Tauseef
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {

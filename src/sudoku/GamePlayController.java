@@ -35,7 +35,7 @@ import static sudoku.Intermediate.*;
 
 /**
  *
- * @author ASUS
+ * @author Nafis
  */
 public class GamePlayController implements Initializable
 {      
@@ -44,6 +44,9 @@ public class GamePlayController implements Initializable
     
     private long start, stop;
     
+    /**
+     * @author Tauseef
+     */
     private class timerClass extends Thread 
     { 
         public void run() 
@@ -98,24 +101,51 @@ public class GamePlayController implements Initializable
     @FXML
     private Label puzzleHeader, modeHeader;
     
+    /**
+     * 
+     * @param cell
+     * @author Nafis
+     */
     private void clear_color(Label cell)
     {
         cell.setStyle("-fx-opaciy: 1;");
     }
+    /**
+     * 
+     * @param cell 
+     * @author Nafis
+     */
     private void paint_selected(Label cell)
     {
         cell.setStyle("-fx-background-color: lightcyan;");
     }
+    /**
+     * 
+     * @param cell
+     * @author Nafis
+     */
     private void paint_right(Label cell)
     {
         cell.setStyle("-fx-background-color: rgb(135, 248, 105);");
     }
+    /**
+     * 
+     * @param cell
+     * @author Nafis
+     */
     private void paint_wrong(Label cell)
     {
         cell.setStyle("-fx-background-color: rgb(255, 51, 51);");
     }
     
     
+    /**
+     * 
+     * @param r
+     * @param c
+     * @return 
+     * @author Nafis
+     */
     private boolean check_cell(int r, int c)
     {
         int val = grid[r][c];
@@ -146,6 +176,11 @@ public class GamePlayController implements Initializable
         return true;
     }
     
+    /**
+     * 
+     * @return
+     * @author Nafis
+     */
     private int check_all()
     {
         int i, j, wrong = 0;
@@ -177,6 +212,12 @@ public class GamePlayController implements Initializable
         return wrong;
     }
 
+    /**
+     * 
+     * @param event
+     * @throws Exception
+     * @author Nafis
+     */
     private void all_right(ActionEvent event)  throws Exception
     {        
         timerThread.stop();
@@ -209,6 +250,12 @@ public class GamePlayController implements Initializable
         
     }
     
+    /**
+     * 
+     * @param event
+     * @throws Exception
+     * @author Nafis
+     */
     @FXML
     private void clickgrid(MouseEvent event) throws Exception
     {
@@ -229,6 +276,12 @@ public class GamePlayController implements Initializable
             box = null;
     }
             
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Nafis
+     */
     @FXML
     private void clicknum(ActionEvent event) throws Exception
     {
@@ -251,6 +304,12 @@ public class GamePlayController implements Initializable
         }      
     }
     
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Nafis
+     */
     @FXML
     private void clickclear(ActionEvent event) throws Exception
     {
@@ -267,6 +326,12 @@ public class GamePlayController implements Initializable
         }
     }
     
+    /**
+     * 
+     * @param event
+     * @throws Exception
+     * @author Nafis
+     */
     @FXML
     private void clickrestart(ActionEvent event) throws Exception
     {
@@ -280,6 +345,12 @@ public class GamePlayController implements Initializable
         window.show();
     }
             
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Nafis
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -293,6 +364,11 @@ public class GamePlayController implements Initializable
         window.show();
     }
     
+    /**
+     * 
+     * @param level 
+     * @author Nafis
+     */
     void loadLevel(int level)
     {
         for(int i = 0; i < 9; i++)
@@ -313,6 +389,12 @@ public class GamePlayController implements Initializable
         }        
     }
    
+    /**
+     * 
+     * @param url
+     * @param rb 
+     * @author Nafis
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {        

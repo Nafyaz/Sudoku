@@ -25,6 +25,12 @@ public class CongratsController implements Initializable
     @FXML
     private Label timerLabel, congratsLabel;
     
+    /**
+     * 
+     * @param event
+     * @throws Exception
+     * @author Tauseef
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -36,6 +42,12 @@ public class CongratsController implements Initializable
         window.show();
     }
     
+    /**
+     * 
+     * @param url
+     * @param rb 
+     * @author Tauseef
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {        

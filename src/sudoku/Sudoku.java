@@ -14,7 +14,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author ASUS
+ * @author Nafis
  */
 public class Sudoku extends Application
 {
@@ -34,6 +34,7 @@ public class Sudoku extends Application
 
     /**
      * @param args the command line arguments
+     * @author Nafis
      */
     public static void main(String[] args)
     {

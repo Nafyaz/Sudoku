@@ -23,7 +23,7 @@ import static sudoku.Intermediate.*;
 /**
  * FXML Controller class
  *
- * @author ASUS
+ * @author Ishmam
  */
 public class PuzzlesController implements Initializable
 {
@@ -36,6 +36,12 @@ public class PuzzlesController implements Initializable
                    puzzle03, puzzle04, puzzle05;
     private Button allpuzzles[] = new Button[levels_per_mode];
     
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Ishmam
+     */
     @FXML
     private void clickPuzzle(ActionEvent event) throws Exception
     {
@@ -53,6 +59,9 @@ public class PuzzlesController implements Initializable
         window.show();
     }
     
+    /**
+     * @author Ishmam
+     */
     private void puzzle_button_control()
     {
         
@@ -90,6 +99,11 @@ public class PuzzlesController implements Initializable
         }
     }
     
+    /**
+     * 
+     * @param event
+     * @author Ishmam
+     */
     @FXML
     private void clickMode(ActionEvent event)
     {
@@ -101,6 +115,12 @@ public class PuzzlesController implements Initializable
         puzzle_button_control();
     }
     
+    /**
+     * 
+     * @param event
+     * @throws IOException
+     * @author Ishmam
+     */
     @FXML
     private void clickClearHistory(ActionEvent event) throws IOException
     {
@@ -115,6 +135,12 @@ public class PuzzlesController implements Initializable
         puzzle_button_control();
     }
     
+    /**
+     * 
+     * @param event
+     * @throws Exception
+     * @author Ishmam
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -126,6 +152,11 @@ public class PuzzlesController implements Initializable
         window.show();
     }
 
+    /**
+     * 
+     * @return 
+     * @author Ishmam
+     */
     public static int getPuzzleLevel()
     {
         return level;

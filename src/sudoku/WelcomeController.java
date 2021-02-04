@@ -26,10 +26,16 @@ import static sudoku.Intermediate.*;
 /**
  * FXML Controller class
  *
- * @author ASUS
+ * @author Nafis
  */
 public class WelcomeController implements Initializable
 {       
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Ishmam
+     */
     @FXML
     private void clickpuzzles(ActionEvent event) throws Exception
     {
@@ -41,6 +47,12 @@ public class WelcomeController implements Initializable
         window.show();
     }
     
+    /**
+     * 
+     * @param event
+     * @throws Exception 
+     * @author Tauseef
+     */
     @FXML
     private void clickHowToPlay(ActionEvent event) throws Exception
     {
@@ -52,12 +64,22 @@ public class WelcomeController implements Initializable
         window.show();
     }
     
+    /**
+     * 
+     * @param event 
+     * @author Tauseef
+     */
     @FXML
     private void clickexit(ActionEvent event)
     {
         Platform.exit();
     }
     
+    /**
+     * 
+     * @throws FileNotFoundException 
+     * @author Nafis
+     */
     private void load_levels() throws FileNotFoundException
     {
         //load easy levels
@@ -136,6 +158,12 @@ public class WelcomeController implements Initializable
         sc.close();
     }
     
+    
+    /**
+     * 
+     * @throws FileNotFoundException 
+     * @author Nafis
+     */
     private void load_times() throws FileNotFoundException //Load user time
     {                
         Scanner sc = new Scanner(new File("User Data\\bestTime.txt"));
