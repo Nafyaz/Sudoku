@@ -8,10 +8,13 @@ package sudoku;
 import java.io.*;
 import java.util.Scanner;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,12 +38,47 @@ import static sudoku.Intermediate.*;
  * @author ASUS
  */
 public class GamePlayController implements Initializable
-{    
+{      
+    @FXML
+    private Label Clock;
+    
+    private long start, stop;
+    
+    private class timerClass extends Thread 
+    { 
+        public void run() 
+        { 
+            while(true)
+            {
+                try
+                { 
+                    Thread.sleep(1000);
+                    SS++;
+                    if(SS >= 60)
+                    {
+                        MM++;
+                        SS = 0;
+                    }
+                } 
+                catch (Exception e) 
+                { 
+                    System.out.println ("timerThread exception"); 
+                } 
+                
+                Platform.runLater(() -> {
+                    Clock.setText(MM + ":" + SS);
+                });                
+            }            
+        } 
+    }
+    
+    Thread timerThread = new Thread(new timerClass()); 
+    
     @FXML
     private Label box, bestTime;
     private Label alllabels[][] = new Label[9][9];
     
-    private long start, stop;
+    
     
     private int[][] grid = new int[9][9];
     private int[][] ques = new int[9][9];
@@ -141,16 +179,12 @@ public class GamePlayController implements Initializable
 
     private void all_right(ActionEvent event)  throws Exception
     {        
-        stop = System.currentTimeMillis();
+        timerThread.stop();
 
         new_record = false;
 
-        SS = (stop - start)/1000;    
-        MM = SS / 60;
-        SS = SS - MM*60;
-
         int i;
-        if(alltimes[level] == -1 || SS < alltimes[level])
+        if(alltimes[level] == -1 || (int)MM*60 + (int)SS < alltimes[level])
         {                
             new_record = true;
             alltimes[level] = (int)MM*60 + (int) SS;
@@ -234,8 +268,10 @@ public class GamePlayController implements Initializable
     }
     
     @FXML
-    private void clickreset(ActionEvent event) throws Exception
+    private void clickrestart(ActionEvent event) throws Exception
     {
+        timerThread.stop();
+        
         Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
         Scene puzzlesScene = new Scene(puzzlesParent);
         
@@ -247,6 +283,8 @@ public class GamePlayController implements Initializable
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
+        timerThread.stop();
+        
         Parent puzzlesParent = FXMLLoader.load(getClass().getResource("Puzzles.fxml"));
         Scene puzzlesScene = new Scene(puzzlesParent);
         
@@ -254,8 +292,6 @@ public class GamePlayController implements Initializable
         window.setScene(puzzlesScene);
         window.show();
     }
-    
-    
     
     void loadLevel(int level)
     {
@@ -320,7 +356,9 @@ public class GamePlayController implements Initializable
                 break;
         }
         
-        start = System.currentTimeMillis();
+        timerThread.start();//start the thread and its ok
+        
+        SS = MM = 0;
         
     }    
     

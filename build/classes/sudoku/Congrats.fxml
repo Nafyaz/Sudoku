@@ -5,12 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="630.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.CongratesController">
+<AnchorPane id="AnchorPane" prefHeight="630.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.CongratsController">
     <stylesheets>
         <URL value="@GamePlayStyle.css" />
     </stylesheets>
    <children>
-      <Label fx:id="congratesLabel" alignment="CENTER" layoutX="234.0" layoutY="240.0" prefHeight="50.0" prefWidth="233.0" text="Congrates" />
+      <Label fx:id="congratsLabel" alignment="CENTER" layoutX="234.0" layoutY="240.0" prefHeight="50.0" prefWidth="233.0" text="Congrats" />
       <Label fx:id="timerLabel" alignment="CENTER" layoutX="220.0" layoutY="290.0" prefHeight="50.0" prefWidth="260.0" text="You solved it in --:--" />
       <Button layoutX="237.0" layoutY="377.0" mnemonicParsing="false" onAction="#clickback" text="Solve New Puzzles" />
    </children>

@@ -19,6 +19,6 @@
       <Button fx:id="puzzles" layoutX="316.0" layoutY="373.0" mnemonicParsing="false" onAction="#clickpuzzles" prefHeight="50.0" text="Puzzles" />
       <Button fx:id="exit" layoutX="335.0" layoutY="566.0" mnemonicParsing="false" onAction="#clickexit" prefHeight="50.0" text="Exit" />
       <Button layoutX="288.0" layoutY="502.0" mnemonicParsing="false" onAction="#clickHowToPlay" prefHeight="50.0" text="How To Play" />
-      <Button fx:id="srowthStatsBtn" layoutX="287.0" layoutY="437.0" mnemonicParsing="false" onAction="#drawGraph" text="Growth Stats" />
+      <Button fx:id="growthStatsBtn" layoutX="287.0" layoutY="437.0" mnemonicParsing="false" onAction="#clickGraph" text="Growth Stats" />
    </children>
 </AnchorPane>

@@ -20,10 +20,10 @@ import static sudoku.Intermediate.*;
 
 
 
-public class CongratesController implements Initializable
+public class CongratsController implements Initializable
 {
     @FXML
-    private Label timerLabel, congratesLabel;
+    private Label timerLabel, congratsLabel;
     
     @FXML
     private void clickback(ActionEvent event) throws Exception
@@ -43,9 +43,9 @@ public class CongratesController implements Initializable
         
         if(new_record == true)
         {
-            System.out.println("Before");
-            congratesLabel.setText("New Record");
-            System.out.println("After");
+//            System.out.println("Before");
+            congratsLabel.setText("New Record");
+//            System.out.println("After");
         }
     }    
     
