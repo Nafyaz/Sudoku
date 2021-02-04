@@ -25,6 +25,12 @@ public class CongratsController implements Initializable
     @FXML
     private Label timerLabel, congratsLabel;
     
+    /**
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
+     * @author Tauseef
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -36,6 +42,12 @@ public class CongratsController implements Initializable
         window.show();
     }
     
+    /**
+     * Displays the time taken and congratulation message.
+     * @param url
+     * @param rb 
+     * @author Tauseef
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {        

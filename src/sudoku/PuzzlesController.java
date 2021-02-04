@@ -21,9 +21,9 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the puzzles choice page.
  *
- * @author ASUS
+ * @author Ishmam
  */
 public class PuzzlesController implements Initializable
 {
@@ -36,6 +36,12 @@ public class PuzzlesController implements Initializable
                    puzzle03, puzzle04, puzzle05;
     private Button allpuzzles[] = new Button[levels_per_mode];
     
+    /**
+     * Loads the puzzle that has been clicked.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly
+     * @author Ishmam
+     */
     @FXML
     private void clickPuzzle(ActionEvent event) throws Exception
     {
@@ -53,6 +59,10 @@ public class PuzzlesController implements Initializable
         window.show();
     }
     
+    /**
+     * Controls which levels are locked and which are playable. Sets the color of the selected difficulty level button too.
+     * @author Ishmam
+     */
     private void puzzle_button_control()
     {
         
@@ -90,6 +100,11 @@ public class PuzzlesController implements Initializable
         }
     }
     
+    /**
+     * Determines which difficulty has been selected.
+     * @param event Mouse click
+     * @author Ishmam
+     */
     @FXML
     private void clickMode(ActionEvent event)
     {
@@ -101,6 +116,12 @@ public class PuzzlesController implements Initializable
         puzzle_button_control();
     }
     
+    /**
+     * Clears all the best times and locks all unlocked puzzles.
+     * @param event Mouse click
+     * @throws IOException when it cannot read from file.
+     * @author Ishmam
+     */
     @FXML
     private void clickClearHistory(ActionEvent event) throws IOException
     {
@@ -115,6 +136,12 @@ public class PuzzlesController implements Initializable
         puzzle_button_control();
     }
     
+    /**
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
+     * @author Ishmam
+     */
     @FXML
     private void clickback(ActionEvent event) throws Exception
     {
@@ -126,6 +153,11 @@ public class PuzzlesController implements Initializable
         window.show();
     }
 
+    /**
+     * Returns the current puzzle level
+     * @return current level
+     * @author Ishmam
+     */
     public static int getPuzzleLevel()
     {
         return level;
@@ -133,6 +165,7 @@ public class PuzzlesController implements Initializable
     
     /**
      * Initializes the controller class.
+     * @author Ishmam
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)

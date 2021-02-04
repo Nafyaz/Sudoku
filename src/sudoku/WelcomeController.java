@@ -24,12 +24,18 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the welcome page.
  *
- * @author ASUS
+ * @author Nafis
  */
 public class WelcomeController implements Initializable
 {       
+    /**
+     * Loads the puzzles selection scene.
+     * @param event Mouse click
+     * @throws Exception when file is not loaded correctly.
+     * @author Ishmam
+     */
     @FXML
     private void clickpuzzles(ActionEvent event) throws Exception
     {
@@ -41,6 +47,12 @@ public class WelcomeController implements Initializable
         window.show();
     }
     
+    /**
+     * Loads the game help scene.
+     * @param event Mouse click
+     * @throws Exception Exception when file is not loaded correctly.
+     * @author Tauseef
+     */
     @FXML
     private void clickHowToPlay(ActionEvent event) throws Exception
     {
@@ -52,12 +64,22 @@ public class WelcomeController implements Initializable
         window.show();
     }
     
+    /**
+     * Exits the application
+     * @param event Mouse click
+     * @author Tauseef
+     */
     @FXML
     private void clickexit(ActionEvent event)
     {
         Platform.exit();
     }
     
+    /**
+     * Loads the puzzles in memory from .csv file.
+     * @throws FileNotFoundException when file is not in directory.
+     * @author Nafis
+     */
     private void load_levels() throws FileNotFoundException
     {
         //load easy levels
@@ -136,6 +158,12 @@ public class WelcomeController implements Initializable
         sc.close();
     }
     
+    
+    /**
+     * Loads the puzzle solve timings in memory from .txt file.
+     * @throws FileNotFoundException when file is not in directory.
+     * @author Nafis
+     */
     private void load_times() throws FileNotFoundException //Load user time
     {                
         Scanner sc = new Scanner(new File("User Data\\bestTime.txt"));
@@ -152,6 +180,12 @@ public class WelcomeController implements Initializable
         sc.close();
     }
     
+    /**
+     * Initializes the controller class, sets the difficulty level and invokes the loading of levels and timings.
+     * @param url
+     * @param rb 
+     * @author Nafis
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
