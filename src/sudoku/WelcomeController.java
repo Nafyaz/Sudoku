@@ -24,16 +24,16 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the welcome page.
  *
  * @author Nafis
  */
 public class WelcomeController implements Initializable
 {       
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Loads the puzzles selection scene.
+     * @param event Mouse click
+     * @throws Exception when file is not loaded correctly.
      * @author Ishmam
      */
     @FXML
@@ -48,9 +48,9 @@ public class WelcomeController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Loads the game help scene.
+     * @param event Mouse click
+     * @throws Exception Exception when file is not loaded correctly.
      * @author Tauseef
      */
     @FXML
@@ -65,8 +65,8 @@ public class WelcomeController implements Initializable
     }
     
     /**
-     * 
-     * @param event 
+     * Exits the application
+     * @param event Mouse click
      * @author Tauseef
      */
     @FXML
@@ -76,8 +76,8 @@ public class WelcomeController implements Initializable
     }
     
     /**
-     * 
-     * @throws FileNotFoundException 
+     * Loads the puzzles in memory from .csv file.
+     * @throws FileNotFoundException when file is not in directory.
      * @author Nafis
      */
     private void load_levels() throws FileNotFoundException
@@ -160,8 +160,8 @@ public class WelcomeController implements Initializable
     
     
     /**
-     * 
-     * @throws FileNotFoundException 
+     * Loads the puzzle solve timings in memory from .txt file.
+     * @throws FileNotFoundException when file is not in directory.
      * @author Nafis
      */
     private void load_times() throws FileNotFoundException //Load user time
@@ -180,6 +180,12 @@ public class WelcomeController implements Initializable
         sc.close();
     }
     
+    /**
+     * Initializes the controller class, sets the difficulty level and invokes the loading of levels and timings.
+     * @param url
+     * @param rb 
+     * @author Nafis
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {

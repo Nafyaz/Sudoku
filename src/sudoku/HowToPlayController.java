@@ -17,17 +17,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the game help page.
  *
- * @author ASUS
+ * @author Tauseef
  */
 public class HowToPlayController implements Initializable
 {
     
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Tauseef
      */
     @FXML
@@ -43,6 +43,7 @@ public class HowToPlayController implements Initializable
 
     /**
      * Initializes the controller class.
+     * @author Tauseef
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)

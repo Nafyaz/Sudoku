@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import static sudoku.Intermediate.*;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the puzzles choice page.
  *
  * @author Ishmam
  */
@@ -37,9 +37,9 @@ public class PuzzlesController implements Initializable
     private Button allpuzzles[] = new Button[levels_per_mode];
     
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Loads the puzzle that has been clicked.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly
      * @author Ishmam
      */
     @FXML
@@ -60,6 +60,7 @@ public class PuzzlesController implements Initializable
     }
     
     /**
+     * Controls which levels are locked and which are playable. Sets the color of the selected difficulty level button too.
      * @author Ishmam
      */
     private void puzzle_button_control()
@@ -100,8 +101,8 @@ public class PuzzlesController implements Initializable
     }
     
     /**
-     * 
-     * @param event
+     * Determines which difficulty has been selected.
+     * @param event Mouse click
      * @author Ishmam
      */
     @FXML
@@ -116,9 +117,9 @@ public class PuzzlesController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws IOException
+     * Clears all the best times and locks all unlocked puzzles.
+     * @param event Mouse click
+     * @throws IOException when it cannot read from file.
      * @author Ishmam
      */
     @FXML
@@ -136,9 +137,9 @@ public class PuzzlesController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws Exception
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Ishmam
      */
     @FXML
@@ -153,8 +154,8 @@ public class PuzzlesController implements Initializable
     }
 
     /**
-     * 
-     * @return 
+     * Returns the current puzzle level
+     * @return current level
      * @author Ishmam
      */
     public static int getPuzzleLevel()
@@ -164,6 +165,7 @@ public class PuzzlesController implements Initializable
     
     /**
      * Initializes the controller class.
+     * @author Ishmam
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)

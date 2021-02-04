@@ -34,7 +34,7 @@ import static sudoku.Intermediate.*;
 
 
 /**
- *
+ * FXML Controller class for the main Sudoku grid level.
  * @author Nafis
  */
 public class GamePlayController implements Initializable
@@ -45,10 +45,14 @@ public class GamePlayController implements Initializable
     private long start, stop;
     
     /**
+     * Threading class for creating a separate thread to run the stop watch.
      * @author Tauseef
      */
     private class timerClass extends Thread 
     { 
+        /**
+         * Function to calculate the time taken to solve.
+         */
         public void run() 
         { 
             while(true)
@@ -102,7 +106,7 @@ public class GamePlayController implements Initializable
     private Label puzzleHeader, modeHeader;
     
     /**
-     * 
+     * Clears the color of the cell.
      * @param cell
      * @author Nafis
      */
@@ -111,7 +115,7 @@ public class GamePlayController implements Initializable
         cell.setStyle("-fx-opaciy: 1;");
     }
     /**
-     * 
+     * Sets color of the selected cell.
      * @param cell 
      * @author Nafis
      */
@@ -120,7 +124,7 @@ public class GamePlayController implements Initializable
         cell.setStyle("-fx-background-color: lightcyan;");
     }
     /**
-     * 
+     * Sets color of the non conflicting cell.
      * @param cell
      * @author Nafis
      */
@@ -129,7 +133,7 @@ public class GamePlayController implements Initializable
         cell.setStyle("-fx-background-color: rgb(135, 248, 105);");
     }
     /**
-     * 
+     * Sets color of the conflicting cell.
      * @param cell
      * @author Nafis
      */
@@ -140,10 +144,10 @@ public class GamePlayController implements Initializable
     
     
     /**
-     * 
-     * @param r
-     * @param c
-     * @return 
+     * Checks the whole grid to find conflicting entries with the given cell.
+     * @param r Row of the cell
+     * @param c Column of the cell
+     * @return whether the grid has conflicting entries with the give cell
      * @author Nafis
      */
     private boolean check_cell(int r, int c)
@@ -177,8 +181,8 @@ public class GamePlayController implements Initializable
     }
     
     /**
-     * 
-     * @return
+     * Checks all the cells for conflicting entries
+     * @return number of conflicting cells
      * @author Nafis
      */
     private int check_all()
@@ -213,9 +217,9 @@ public class GamePlayController implements Initializable
     }
 
     /**
-     * 
-     * @param event
-     * @throws Exception
+     * Stops the clock, checks if new record has been created or not and sets the new scene.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     private void all_right(ActionEvent event)  throws Exception
@@ -251,9 +255,9 @@ public class GamePlayController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws Exception
+     * Determines which grid box was clicked
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     @FXML
@@ -277,9 +281,9 @@ public class GamePlayController implements Initializable
     }
             
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Handles the number pad clicks and sets the number in the selected grid.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     @FXML
@@ -305,9 +309,9 @@ public class GamePlayController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Clears the selected box.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     @FXML
@@ -327,9 +331,9 @@ public class GamePlayController implements Initializable
     }
     
     /**
-     * 
-     * @param event
-     * @throws Exception
+     * Clears the grid and restarts the clock.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     @FXML
@@ -346,9 +350,9 @@ public class GamePlayController implements Initializable
     }
             
     /**
-     * 
-     * @param event
-     * @throws Exception 
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Nafis
      */
     @FXML
@@ -365,8 +369,8 @@ public class GamePlayController implements Initializable
     }
     
     /**
-     * 
-     * @param level 
+     * Loads the level in the grid boxes.
+     * @param level The selected level
      * @author Nafis
      */
     void loadLevel(int level)
@@ -390,7 +394,7 @@ public class GamePlayController implements Initializable
     }
    
     /**
-     * 
+     * Initializes the controller class and loads a=the level, starts the clock and sets the colors.
      * @param url
      * @param rb 
      * @author Nafis

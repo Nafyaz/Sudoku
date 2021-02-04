@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- *
+ * An abstract class which sets all the global variables.
  * @author Nafis
  */
 public class Intermediate

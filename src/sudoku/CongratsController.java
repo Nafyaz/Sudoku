@@ -26,9 +26,9 @@ public class CongratsController implements Initializable
     private Label timerLabel, congratsLabel;
     
     /**
-     * 
-     * @param event
-     * @throws Exception
+     * Sets the previous scene when the back button is pressed.
+     * @param event Mouse click
+     * @throws Exception when files are not loaded correctly.
      * @author Tauseef
      */
     @FXML
@@ -43,7 +43,7 @@ public class CongratsController implements Initializable
     }
     
     /**
-     * 
+     * Displays the time taken and congratulation message.
      * @param url
      * @param rb 
      * @author Tauseef

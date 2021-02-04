@@ -13,12 +13,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- *
+ * Main Class that holds the stage for the application.
  * @author Nafis
  */
 public class Sudoku extends Application
 {
     
+    /**
+     * Function that sets and shows the loaded scene in the stage.
+     * @param stage JavaFx stage
+     * @throws Exception when file is not loaded correctly.
+     * @author Nafis
+     */
     @Override
     public void start(Stage stage) throws Exception
     {
@@ -33,6 +39,7 @@ public class Sudoku extends Application
     }
 
     /**
+     * Launches the application.
      * @param args the command line arguments
      * @author Nafis
      */
