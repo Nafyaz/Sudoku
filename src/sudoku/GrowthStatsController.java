@@ -56,7 +56,7 @@ public class GrowthStatsController implements Initializable
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
-    {
+    {        
         //Defining the x axis             
         NumberAxis xAxis = new NumberAxis(1, 6, 1); 
         xAxis.setLabel("Levels"); 
@@ -109,14 +109,17 @@ public class GrowthStatsController implements Initializable
                         "    -fx-font-size: 24px;\n" +
                         "    -fx-alignment: center;"
                         );
-                
+        
+                        
         root.getChildren().add(backBtn);
         Scene scene = new Scene(root, 700, 630);
         stage.setTitle("Line Chart"); 
         stage.setScene(scene);
-
+                
         //Displaying the contents of the stage 
         stage.show(); 
+        
+        
     }    
     
 }

@@ -246,7 +246,7 @@ public class GamePlayController implements Initializable
         }            
 
 
-        Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrates.fxml"));
+        Parent CongratesParent = FXMLLoader.load(getClass().getResource("Congrats.fxml"));
         Scene CongratesScene = new Scene(CongratesParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

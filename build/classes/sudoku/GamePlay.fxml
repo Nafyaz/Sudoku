@@ -282,7 +282,7 @@
          </children>
       </GridPane>
       <Button layoutX="568.0" layoutY="235.0" mnemonicParsing="false" onAction="#clickclear" text="Clear" />
-      <Label fx:id="Clock" layoutX="561.0" layoutY="320.0" prefHeight="50.0" prefWidth="100.0" text="0:0" />      
+      <Label fx:id="Clock" layoutX="561.0" layoutY="322.0" prefHeight="50.0" prefWidth="100.0" text="0:0" />      
       <Label layoutX="560.0" layoutY="409.0" text="Your best" />
       <Label fx:id="bestTime" layoutX="561.0" layoutY="445.0" prefHeight="50.0" prefWidth="100.0" text="--:--" />
       <Button layoutX="196.0" layoutY="559.0" mnemonicParsing="false" onAction="#clickrestart" text="Restart" />

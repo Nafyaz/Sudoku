@@ -57,12 +57,13 @@ public class WelcomeController implements Initializable
     private void clickGraph(ActionEvent event) throws Exception
     {        
         growthstatsevent = event;
-        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GrowthStats.fxml"));
-        Scene puzzlesScene = new Scene(puzzlesParent);
+        Parent puzzlesParent = FXMLLoader.load(getClass().getResource("GrowthStats.fxml"));                
+//        Scene puzzlesScene = new Scene(puzzlesParent);
         
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(puzzlesScene);
-        window.show();
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        window.setScene(puzzlesScene);
+//        window.show();
+        
     }
     
     @FXML
