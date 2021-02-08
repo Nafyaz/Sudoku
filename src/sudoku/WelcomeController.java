@@ -96,7 +96,7 @@ public class WelcomeController implements Initializable
     private void load_levels() throws FileNotFoundException
     {
         //load easy levels
-        Scanner sc = new Scanner(new File("Levels\\levels.csv"));
+        Scanner sc = new Scanner(new File("src\\Levels\\levels.csv"));
         sc.useDelimiter(",|\r\n"); 
         
         int i = 0, j = 0, k = 0, num;
@@ -123,7 +123,7 @@ public class WelcomeController implements Initializable
         sc.close();
         
         //load normal levels
-        sc = new Scanner(new File("Levels\\levels_med.csv"));
+        sc = new Scanner(new File("src\\Levels\\levels_med.csv"));
         sc.useDelimiter(",|\r\n"); 
         while(sc.hasNext()) 
         {
@@ -147,7 +147,7 @@ public class WelcomeController implements Initializable
         sc.close();
         
         //load hard levels
-        sc = new Scanner(new File("Levels\\levels_hard.csv"));
+        sc = new Scanner(new File("src\\Levels\\levels_hard.csv"));
         sc.useDelimiter(",|\r\n"); 
         while(sc.hasNext()) 
         {
@@ -179,7 +179,7 @@ public class WelcomeController implements Initializable
      */
     private void load_times() throws FileNotFoundException //Load user time
     {                
-        Scanner sc = new Scanner(new File("User Data\\bestTime.txt"));
+        Scanner sc = new Scanner(new File("src\\User Data\\bestTime.txt"));
         sc.useDelimiter("\r\n");
         
         int i = 0;

@@ -125,7 +125,7 @@ public class PuzzlesController implements Initializable
     @FXML
     private void clickClearHistory(ActionEvent event) throws IOException
     {
-        FileWriter writer = new FileWriter("User Data\\bestTime.txt");
+        FileWriter writer = new FileWriter("src\\User Data\\bestTime.txt");
         for(int i = 0; i < 50; i++)
         {
             alltimes[i] = -1;

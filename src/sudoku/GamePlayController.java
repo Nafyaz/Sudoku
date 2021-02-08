@@ -41,9 +41,7 @@ public class GamePlayController implements Initializable
 {      
     @FXML
     private Label Clock;
-    
-    private long start, stop;
-    
+        
     /**
      * Threading class for creating a separate thread to run the stop watch.
      * @author Tauseef
@@ -237,7 +235,7 @@ public class GamePlayController implements Initializable
 
             bestTime.setText(MM + " : " + SS); 
 
-            FileWriter writer = new FileWriter("User Data\\bestTime.txt");
+            FileWriter writer = new FileWriter("src\\User Data\\bestTime.txt");
             for(i = 0; i < 50; i++)
             {
                 writer.write(alltimes[i] + "\r\n");
